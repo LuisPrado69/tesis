@@ -1,0 +1,68 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/SlonCorp/laravel-acl"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "barryvdh/laravel-snappy": "^0.4.0",
+        "doctrine/dbal": "^2.5",
+        "guzzlehttp/guzzle": "~6.0",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
+        "intervention/image": "^2.4",
+        "laravel/framework": "5.8.*",
+        "laravel/tinker": "~1.0",
+        "monolog/monolog": "^1.23",
+        "sloncorp/laravel-acl": "1.1.0",
+        "symfony/translation": "4.3.8",
+        "tymon/jwt-auth": "^1.0.0-rc.4.1",
+        "yajra/laravel-datatables-oracle": "^9.1"
+    },
+    "require-dev": {
+        "filp/whoops": "~2.0",
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Helpers/Global.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
