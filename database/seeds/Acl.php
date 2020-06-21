@@ -105,8 +105,10 @@ class Acl extends Seeder
 
 
     private static $SYSTEM_PERMISSIONS = [
-        ['name' => 'roles', 'label' => 'Roles','show_to_users' => 1],
+        ['name' => 'roles', 'label' => 'Roles', 'show_to_users' => 1],
         ['name' => 'users', 'label' => 'Usuarios', 'show_to_users' => 1],
+        ['name' => 'catalogs', 'label' => 'Catálogos', 'show_to_users' => 1],
+        ['name' => 'events', 'label' => 'Eventos', 'show_to_users' => 1]
     ];
 
     /*
@@ -252,6 +254,89 @@ class Acl extends Seeder
         ];
     }
 
+    private function catalogs_slugs($allowed)
+    {
+        return [
+            'category' => [
+                'allowed' => $allowed,
+                'label' => 'Categorias',
+                'is_primary' => 1,
+                'order' => 1,
+                'inner' => [
+                    'index' => [
+                        'allowed' => $allowed,
+                        'order' => 1,
+                        'label' => 'Listar categorias',
+                        'inner' => [
+                            'data' => ['allowed' => $allowed]
+                        ]
+                    ],
+                    'create' => [
+                        'allowed' => $allowed,
+                        'order' => 2,
+                        'label' => 'Crear categoria',
+                        'inner' => [
+                            'store' => ['allowed' => $allowed],
+                            'verify' => ['allowed' => $allowed]
+                        ]
+                    ],
+                    'edit' => [
+                        'allowed' => $allowed,
+                        'order' => 3,
+                        'label' => 'Editar categoria',
+                        'inner' => [
+                            'update' => ['allowed' => $allowed],
+                            'verify' => ['allowed' => $allowed]
+                        ]
+                    ],
+                    'enable_disable' => [
+                        'allowed' => $allowed,
+                        'order' => 4,
+                        'label' => 'Activar/Desactivar categoria'
+                    ]
+                ]
+            ]
+        ];
+    }
+
+    private function events_slugs($allowed)
+    {
+        return [
+
+            'index' => [
+                'allowed' => $allowed,
+                'order' => 1,
+                'label' => 'Listar Eventos',
+                'inner' => [
+                    'data' => ['allowed' => $allowed]
+                ]
+            ],
+            'create' => [
+                'allowed' => $allowed,
+                'order' => 2,
+                'label' => 'Crear evento',
+                'inner' => [
+                    'store' => ['allowed' => $allowed],
+                    'verify' => ['allowed' => $allowed]
+                ]
+            ],
+            'edit' => [
+                'allowed' => $allowed,
+                'order' => 3,
+                'label' => 'Editar evento',
+                'inner' => [
+                    'update' => ['allowed' => $allowed],
+                    'verify' => ['allowed' => $allowed]
+                ]
+            ],
+            'enable_disable' => [
+                'allowed' => $allowed,
+                'order' => 4,
+                'label' => 'Activar/Desactivar evento'
+            ]
+        ];
+    }
+
     /** END JSON tree **/
 
     /** Do not touch the following methods *
@@ -306,8 +391,8 @@ class Acl extends Seeder
 
         foreach (Acl::$SYSTEM_PERMISSIONS as $p) {
             $slug = $p['name'] . ($role ? '.' . $role->slug : '');
-            if(!array_key_exists('show_to_users', $p)) {
-               $p['show_to_users'] = 1;
+            if (!array_key_exists('show_to_users', $p)) {
+                $p['show_to_users'] = 1;
             }
             $parentPermissions[$slug] = $this->_makePermission($p['name'], $p['label'], $p['show_to_users'], $allowed, $parents, $role);
         }
@@ -329,9 +414,9 @@ class Acl extends Seeder
                 throw new Exception('Specific Role is invalid');
             }
             if ($permission === '*') {
-                $this->_makePermission($slug, $basePermission['label'],$basePermission['show_to_users'], true, $parentPermissions, $role);
+                $this->_makePermission($slug, $basePermission['label'], $basePermission['show_to_users'], true, $parentPermissions, $role);
             } elseif (is_array($permission)) {
-                $this->_makePermission($slug, $basePermission['label'],$basePermission['show_to_users'], true, $parentPermissions, $role, $permission);
+                $this->_makePermission($slug, $basePermission['label'], $basePermission['show_to_users'], true, $parentPermissions, $role, $permission);
             } else {
                 throw new Exception('Specific Roles tree is invalid');
             }
@@ -351,5 +436,4 @@ class Acl extends Seeder
         }
         return false;
     }
-
 }

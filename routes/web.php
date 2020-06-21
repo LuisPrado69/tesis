@@ -220,3 +220,54 @@ Route::group([
 
     }
 );
+
+/* ------------- */
+/* Catalogs */
+/* ------------- */
+Route::group([
+    'prefix' => 'catalogs',
+    'middleware' => ['auth', 'route']
+],
+    function () {
+        // Nationality
+        Route::get('/category/enable_disable/{id}', 'Business\Catalogs\CategoryController@enableDisable')->name('enable_disable.category.catalogs');
+        Route::get('/category/data', 'Business\Catalogs\CategoryController@data')->name('data.index.category.catalogs');
+        Route::get('/category/verify_create', 'Business\Catalogs\CategoryController@verify')->name('verify.create.category.catalogs');
+        Route::get('/category/verify_edit', 'Business\Catalogs\CategoryController@verify')->name('verify.edit.category.catalogs');
+        Route::resource('category', 'Business\Catalogs\CategoryController', [
+            'parameters' => ['category' => 'id'],
+            'names' => [
+                'index' => 'index.category.catalogs',
+                'create' => 'create.category.catalogs',
+                'store' => 'store.create.category.catalogs',
+                'edit' => 'edit.category.catalogs',
+                'update' => 'update.edit.category.catalogs'
+            ]
+        ]);
+    }
+);
+
+/* ------------- */
+/* Events */
+/* ------------- */
+Route::group([
+    'prefix' => 'events',
+    'middleware' => ['auth', 'route']
+],
+    function () {
+        Route::get('/enable_disable/{id}', 'Business\EventsController@enableDisable')->name('enable_disable.events');
+        Route::get('/data', 'Business\EventsController@data')->name('data.index.events');
+        Route::get('/verify_create', 'Business\EventsController@verify')->name('verify.create.events');
+        Route::get('/verify_edit', 'Business\EventsController@verify')->name('verify.edit.events');
+        Route::resource('event', 'Business\EventsController', [
+            'parameters' => ['event' => 'id'],
+            'names' => [
+                'index' => 'index.events',
+                'create' => 'create.events',
+                'store' => 'store.create.events',
+                'edit' => 'edit.events',
+                'update' => 'update.edit.events'
+            ]
+        ]);
+    }
+);

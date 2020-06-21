@@ -45,6 +45,31 @@ class Menu extends Seeder
             'parent_id' => $admin->id
         ]);
 
+        // Catalogs
+        $catalogs = $model->create([
+            'label' => 'Catálogos',
+            'slug' => null,
+            'icon' => null,
+            'weight' => 200,
+            'enabled' => 1
+        ]);
 
+        $model->create([
+            'label' => 'Categorias',
+            'slug' => 'index.category.catalogs',
+            'icon' => '',
+            'weight' => 2001,
+            'enabled' => 1,
+            'parent_id' => $catalogs->id
+        ]);
+
+        // Catalogs
+        $model->create([
+            'label' => 'Eventos',
+            'slug' => 'index.events',
+            'icon' => null,
+            'weight' => 300,
+            'enabled' => 1
+        ]);
     }
 }
