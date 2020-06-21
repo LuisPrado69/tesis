@@ -20,6 +20,7 @@ return [
         'welcome' => 'Bienvenido/a',
         'title' => 'Navegación',
 
+        'catalogs' => 'Catálogos',
         'login' => 'Acceder',
 
         'administration' => 'Administración',

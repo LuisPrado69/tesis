@@ -49,7 +49,7 @@ class Menu extends Seeder
         $catalogs = $model->create([
             'label' => 'Catálogos',
             'slug' => null,
-            'icon' => null,
+            'icon' => 'gear',
             'weight' => 200,
             'enabled' => 1
         ]);
@@ -67,7 +67,7 @@ class Menu extends Seeder
         $model->create([
             'label' => 'Eventos',
             'slug' => 'index.events',
-            'icon' => null,
+            'icon' => 'calendar',
             'weight' => 300,
             'enabled' => 1
         ]);

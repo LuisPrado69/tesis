@@ -16,7 +16,7 @@ class CreateCategoryTable extends Migration
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->enum('status', ['ACTIVE', 'INACTIVE'])->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
