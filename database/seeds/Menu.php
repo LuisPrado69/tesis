@@ -63,6 +63,15 @@ class Menu extends Seeder
             'parent_id' => $catalogs->id
         ]);
 
+        $model->create([
+            'label' => 'Localidades',
+            'slug' => 'index.location.catalogs',
+            'icon' => '',
+            'weight' => 2002,
+            'enabled' => 1,
+            'parent_id' => $catalogs->id
+        ]);
+
         // Catalogs
         $model->create([
             'label' => 'Eventos',

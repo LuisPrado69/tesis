@@ -15,6 +15,7 @@ class _System extends Seeder
             Acl::class,
             Menu::class,
             Settings::class,
+            Catalogs::class
         ]);
     }
 }

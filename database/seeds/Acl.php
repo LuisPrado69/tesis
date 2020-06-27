@@ -295,6 +295,45 @@ class Acl extends Seeder
                         'label' => 'Activar/Desactivar categoria'
                     ]
                 ]
+            ],
+            'location' => [
+                'allowed' => $allowed,
+                'label' => 'Localidades',
+                'is_primary' => 1,
+                'order' => 1,
+                'inner' => [
+                    'index' => [
+                        'allowed' => $allowed,
+                        'order' => 1,
+                        'label' => 'Listar localidades',
+                        'inner' => [
+                            'data' => ['allowed' => $allowed]
+                        ]
+                    ],
+                    'create' => [
+                        'allowed' => $allowed,
+                        'order' => 2,
+                        'label' => 'Crear localidad',
+                        'inner' => [
+                            'store' => ['allowed' => $allowed],
+                            'verify' => ['allowed' => $allowed]
+                        ]
+                    ],
+                    'edit' => [
+                        'allowed' => $allowed,
+                        'order' => 3,
+                        'label' => 'Editar localidad',
+                        'inner' => [
+                            'update' => ['allowed' => $allowed],
+                            'verify' => ['allowed' => $allowed]
+                        ]
+                    ],
+                    'enable_disable' => [
+                        'allowed' => $allowed,
+                        'order' => 4,
+                        'label' => 'Activar/Desactivar localidad'
+                    ]
+                ]
             ]
         ];
     }

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Category
+ * Class Location
  * @package App\Models\Business
  */
-class Category extends Model
+class Location extends Model
 {
 
     /**
@@ -20,7 +20,7 @@ class Category extends Model
     /**
      * @var string
      */
-    protected $table = 'category';
+    protected $table = 'location';
 
     /**
      * @var bool
@@ -34,6 +34,7 @@ class Category extends Model
      */
     protected $fillable = [
         'name',
-        'status'
+        'latitude',
+        'longitude'
     ];
 }

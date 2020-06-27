@@ -229,7 +229,7 @@ Route::group([
     'middleware' => ['auth', 'route']
 ],
     function () {
-        // Nationality
+        // Category
         Route::get('/category/enable_disable/{id}', 'Business\Catalogs\CategoryController@enableDisable')->name('enable_disable.category.catalogs');
         Route::get('/category/data', 'Business\Catalogs\CategoryController@data')->name('data.index.category.catalogs');
         Route::get('/category/verify_create', 'Business\Catalogs\CategoryController@verify')->name('verify.create.category.catalogs');
@@ -242,6 +242,21 @@ Route::group([
                 'store' => 'store.create.category.catalogs',
                 'edit' => 'edit.category.catalogs',
                 'update' => 'update.edit.category.catalogs'
+            ]
+        ]);
+        // Location
+        Route::get('/location/enable_disable/{id}', 'Business\Catalogs\LocationController@enableDisable')->name('enable_disable.location.catalogs');
+        Route::get('/location/data', 'Business\Catalogs\LocationController@data')->name('data.index.location.catalogs');
+        Route::get('/location/verify_create', 'Business\Catalogs\LocationController@verify')->name('verify.create.location.catalogs');
+        Route::get('/location/verify_edit', 'Business\Catalogs\LocationController@verify')->name('verify.edit.location.catalogs');
+        Route::resource('location', 'Business\Catalogs\LocationController', [
+            'parameters' => ['location' => 'id'],
+            'names' => [
+                'index' => 'index.location.catalogs',
+                'create' => 'create.location.catalogs',
+                'store' => 'store.create.location.catalogs',
+                'edit' => 'edit.location.catalogs',
+                'update' => 'update.edit.location.catalogs'
             ]
         ]);
     }
