@@ -12,3 +12,16 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// Login
+Route::get('/login', 'Business\API\LoginController@login')->name('login');
+
+/* ------------- */
+/* Category */
+/* ------------- */
+Route::group([
+    'prefix' => 'category',
+],
+    function () {
+        Route::get('/all', 'Business\API\CategoryController@all');
+    }
+);
