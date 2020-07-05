@@ -19,5 +19,7 @@ return [
     'has_no_role' => 'El usuario no tiene un rol asociado.',
     'disabled_role' => 'El rol asociado al usuario se encuentra inhabilitado.',
     'user_inactive' => 'El usuario se encuentra inactivo.',
-    'user_has_no_roles' => 'No existen perfiles activos para este usuario.'
+    'user_has_no_roles' => 'No existen perfiles activos para este usuario.',
+    'user_password_error' => 'Usuario o contraseña incorrecto.',
+    'success' => 'Login exitoso.'
 ];

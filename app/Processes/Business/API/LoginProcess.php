@@ -25,8 +25,7 @@ class LoginProcess
      */
     public function __construct(
         LoginController $loginController
-    )
-    {
+    ) {
         $this->loginController = $loginController;
     }
 
@@ -40,11 +39,41 @@ class LoginProcess
      */
     public function login(Request $request)
     {
-        $entity = $this->loginController->login($request);
-        dd($entity);
-        if (!$entity) {
-            throw new Exception(trans('events.messages.errors.create'), 1000);
+        $this->loginController->validateLogin($request);
+        $user = $this->loginController->checkUserStatus($request);
+        if ($user != null) {
+            if ($user->enabled == 0) {
+                $response = [
+                    'message' => [
+                        'type' => 'error',
+                        'text' => trans('auth.disabled_user')
+                    ]
+                ];
+            } else {
+                if ($user->hasRole('client')) {
+                    $response = [
+                        'message' => [
+                            'type' => 'success',
+                            'text' => trans('auth.success')
+                        ]
+                    ];
+                } else {
+                    $response = [
+                        'message' => [
+                            'type' => 'error',
+                            'text' => trans('auth.disabled_role')
+                        ]
+                    ];
+                }
+            }
+        } else {
+            $response = [
+                'message' => [
+                    'type' => 'error',
+                    'text' => trans('auth.disabled_user')
+                ]
+            ];
         }
-        return $entity;
+        return $response;
     }
 }

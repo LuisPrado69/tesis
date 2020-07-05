@@ -34,6 +34,15 @@ class Acl extends Seeder
             'editable' => false
         ]);
 
+        // Client
+        $clientRoleSlug = 'client';
+        $clientRole = config('acl.role')::create([
+            'name' => 'Cliente',
+            'slug' => $clientRoleSlug,
+            'description' => 'Gestionan el correcto funcionamiento del sistema',
+            'editable' => false
+        ]);
+
         /** ------------
          * Default users
          * ------------- */
@@ -81,6 +90,21 @@ class Acl extends Seeder
             'changed_password' => 1, //TODO: leave this in 0,
             'enabled' => 1
         ]);
+
+        $client = User::create([
+            'id' => 4,
+            'username' => 'luis.prado@crifa.com',
+            'first_name' => 'Luis',
+            'last_name' => 'Prado',
+            'document_type' => 'RUC',
+            'document' => '4444444444',
+            'email' => 'luis.prado@crifa.com',
+            'password' => bcrypt('123456'),
+            'remember_token' => md5(uniqid()),
+            'changed_password' => 1,
+            'enabled' => 1
+        ]);
+        $client->assignRole($clientRole);
 
         /** ------------------
          * Add all permissions to admin and developer roles
