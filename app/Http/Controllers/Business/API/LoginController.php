@@ -26,8 +26,7 @@ class LoginController extends Controller
      */
     public function __construct(
         LoginProcess $loginProcess
-    )
-    {
+    ) {
         $this->loginProcess = $loginProcess;
     }
 
@@ -43,17 +42,13 @@ class LoginController extends Controller
         try {
             $login = $this->loginProcess->login($request);
             $response = [
-                'message' => [
-                    'type' => $login['message']['type'],
-                    'text' => $login['message']['text']
-                ]
+                'type' => $login['type'],
+                'text' => $login['text']
             ];
         } catch (Throwable $e) {
             $response = [
-                'message' => [
-                    'type' => 'error',
-                    'text' => trans('auth.user_password_error')
-                ]
+                'type' => 'error',
+                'text' => trans('auth.user_password_error')
             ];
         }
         return response()->json($response);

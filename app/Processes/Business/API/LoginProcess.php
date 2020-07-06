@@ -44,34 +44,26 @@ class LoginProcess
         if ($user != null) {
             if ($user->enabled == 0) {
                 $response = [
-                    'message' => [
-                        'type' => 'error',
-                        'text' => trans('auth.disabled_user')
-                    ]
+                    'type' => 'error',
+                    'text' => trans('auth.disabled_user')
                 ];
             } else {
                 if ($user->hasRole('client')) {
                     $response = [
-                        'message' => [
-                            'type' => 'success',
-                            'text' => trans('auth.success')
-                        ]
+                        'type' => 'success',
+                        'text' => trans('auth.success')
                     ];
                 } else {
                     $response = [
-                        'message' => [
-                            'type' => 'error',
-                            'text' => trans('auth.disabled_role')
-                        ]
+                        'type' => 'error',
+                        'text' => trans('auth.disabled_role')
                     ];
                 }
             }
         } else {
             $response = [
-                'message' => [
-                    'type' => 'error',
-                    'text' => trans('auth.disabled_user')
-                ]
+                'type' => 'error',
+                'text' => trans('auth.disabled_user')
             ];
         }
         return $response;
