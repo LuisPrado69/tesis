@@ -2,9 +2,11 @@
 
 namespace App\Processes\Business\API;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class LoginProcess
@@ -12,6 +14,7 @@ use Exception;
  */
 class LoginProcess
 {
+    use AuthenticatesUsers;
 
     /**
      * @var LoginController
@@ -40,30 +43,38 @@ class LoginProcess
     public function login(Request $request)
     {
         $this->loginController->validateLogin($request);
-        $user = $this->loginController->checkUserStatus($request);
-        if ($user != null) {
-            if ($user->enabled == 0) {
+        $data = $request->all();
+        $user = $this->loginController->checkUserVerify($request);
+        if (Hash::check($data['password'], $user->password)) {
+            if ($user != null) {
+                if ($user->enabled == 0) {
+                    $response = [
+                        'type' => 'error',
+                        'text' => trans('auth.disabled_user')
+                    ];
+                } else {
+                    if ($user->hasRole('client')) {
+                        $response = [
+                            'type' => 'success',
+                            'text' => trans('auth.success')
+                        ];
+                    } else {
+                        $response = [
+                            'type' => 'error',
+                            'text' => trans('auth.disabled_role')
+                        ];
+                    }
+                }
+            } else {
                 $response = [
                     'type' => 'error',
                     'text' => trans('auth.disabled_user')
                 ];
-            } else {
-                if ($user->hasRole('client')) {
-                    $response = [
-                        'type' => 'success',
-                        'text' => trans('auth.success')
-                    ];
-                } else {
-                    $response = [
-                        'type' => 'error',
-                        'text' => trans('auth.disabled_role')
-                    ];
-                }
             }
         } else {
             $response = [
                 'type' => 'error',
-                'text' => trans('auth.disabled_user')
+                'text' => trans('auth.user_password_error')
             ];
         }
         return $response;

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -75,12 +74,9 @@ class LoginController extends Controller
                     ]);
                 }
             }
-
         } else {
             return $this->sendFailedLoginResponse($request);
         }
-
-
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
@@ -106,7 +102,7 @@ class LoginController extends Controller
         return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath());
     }
 
-    protected function credentials(Request $request)
+    public function credentials(Request $request)
     {
 
         return array_merge($request->only($this->username(), 'password'), ['enabled' => 1]);
@@ -115,10 +111,13 @@ class LoginController extends Controller
 
     public function checkUserStatus(Request $request)
     {
-
         return User::where('username', $request->only($this->username()))->first();
     }
 
+    public function checkUserVerify(Request $request)
+    {
+        return User::where('username', $request->only($this->username()))->first();
+    }
 
     public function checkUserChangedPassword(Request $request)
     {
