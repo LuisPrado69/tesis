@@ -56,7 +56,8 @@ class LoginProcess
                     if ($user->hasRole('client')) {
                         $response = [
                             'type' => 'success',
-                            'text' => trans('auth.success')
+                            'text' => trans('auth.success'),
+                            'userId' => $user->id
                         ];
                     } else {
                         $response = [

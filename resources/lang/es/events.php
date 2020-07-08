@@ -18,10 +18,24 @@ return [
         'update' => 'Actualizar evento',
         'edit' => 'Editar evento',
         'name' => 'Nombre',
+        'description' => 'Descripción',
+        'date' => 'Fecha',
+        'date_start' => 'Fecha inicio',
+        'date_end' => 'Fecha final',
+        'url' => 'Dirección url',
+        'category_id' => 'Categoria',
+        'location_id' => 'Localidad (lugar)',
         'enabled' => 'Activar/ Desactivar'
     ],
     'placeholders' => [
-        'name' => 'Nombre'
+        'name' => 'Nombre',
+        'description' => 'Descripción',
+        'date' => 'Fecha',
+        'date_start' => 'Fecha inicio',
+        'date_end' => 'Fecha final',
+        'url' => 'Dirección url',
+        'category_id' => 'Categoria',
+        'location_id' => 'Localidad (lugar)'
     ],
     'messages' => [
         'success' => [

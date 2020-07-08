@@ -1,8 +1,6 @@
 <?php
 
-
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
 
 class Settings extends Seeder
 {
@@ -19,8 +17,8 @@ class Settings extends Seeder
         $model->create([
             'key' => 'ui_menu_styles',
             'value' => [
-                'color' => '#256ba7',
-                'active_color' => '#004179',
+                'color' => '#2f2f2f',
+                'active_color' => '#98611e',
                 'text_color' => '#FFFFFF'
             ],
             'description' => 'Estilos del menú lateral izquierdo'
@@ -29,8 +27,8 @@ class Settings extends Seeder
         $model->create([
             'key' => 'ui_logos',
             'value' => [
-                'login_logo' => 'assets/images/logo_sloncorp_login.png',
-                'menu_logo' => 'assets/images/logo_sloncorp.jpg'
+                'login_logo' => 'assets/images/IconApp.png',
+                'menu_logo' => 'assets/images/IconApp.png'
             ],
             'description' => 'Ruta de los logos del proyecto'
         ]);
@@ -44,6 +42,5 @@ class Settings extends Seeder
             ],
             'description' => 'Etiquetas generales del proyecto'
         ]);
-
     }
 }

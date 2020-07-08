@@ -2,7 +2,6 @@
 
 namespace App\Processes\Admin;
 
-
 use App\Repositories\Repository\Configuration\RoleRepository;
 use App\Repositories\Repository\Admin\UserRepository;
 use App\Models\System\User;
@@ -205,7 +204,6 @@ class UserProcess
      */
     public function edit($id)
     {
-
         $entity = $this->userRepository->find($id);
         if (!$entity) {
             throw  new Exception(trans('users.user.messages.exceptions.not_found'), 1000);

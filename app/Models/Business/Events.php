@@ -41,7 +41,8 @@ class Events extends Model
         'date_end',
         'url',
         'status',
-        'category_id'
+        'category_id',
+        'location_id'
     ];
 
     /**

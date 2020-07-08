@@ -31,6 +31,9 @@
                         <tr>
                             <th></th>
                             <th>{{ trans('events.labels.name') }}</th>
+                            <th>{{ trans('events.labels.date') }}</th>
+                            <th>{{ trans('events.labels.date_start') }}</th>
+                            <th>{{ trans('events.labels.date_end') }}</th>
                             <th>{{ trans('events.labels.enabled') }}</th>
                             <th>{{ trans('app.labels.actions') }}</th>
                         </tr>
@@ -48,9 +51,12 @@
             ajax: '{!! route('data.index.events') !!}',
             columns: [
                 {data: 'id', visible: false, sortable: false, searchable: false, width: '0'},
-                {data: 'name', width: '60%', sortable: true, searchable: true},
-                {data: 'enabled', width: '20%', searchable: true, sortable: true},
-                {data: 'actions', width: '20%', sortable: false, searchable: false, class: 'text-center'}
+                {data: 'name', width: '50%', sortable: true, searchable: true},
+                {data: 'date', width: '10%', sortable: true, searchable: true},
+                {data: 'date_start', width: '10%', sortable: true, searchable: true},
+                {data: 'date_end', width: '10%', sortable: true, searchable: true},
+                {data: 'enabled', width: '10%', searchable: true, sortable: true},
+                {data: 'actions', width: '10%', sortable: false, searchable: false, class: 'text-center'}
             ]
         }, function (e) { // on enabled switch change
             e.preventDefault();

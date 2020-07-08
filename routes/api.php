@@ -16,6 +16,18 @@ use Illuminate\Http\Request;
 Route::get('/login', 'Business\API\LoginController@login')->name('login');
 
 /* ------------- */
+/* Profile */
+/* ------------- */
+Route::group([
+    'prefix' => 'profile',
+],
+    function () {
+        Route::get('/searchUserId', 'Business\API\ProfileController@searchUserId');
+        Route::put('/updateUser', 'Business\API\ProfileController@updateUser');
+    }
+);
+
+/* ------------- */
 /* Category */
 /* ------------- */
 Route::group([

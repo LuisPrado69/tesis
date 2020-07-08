@@ -43,12 +43,14 @@ class LoginController extends Controller
             $login = $this->loginProcess->login($request);
             $response = [
                 'type' => $login['type'],
-                'text' => $login['text']
+                'text' => $login['text'],
+                'userId' => $login['userId'] ? $login['userId'] : null
             ];
         } catch (Throwable $e) {
             $response = [
                 'type' => 'error',
-                'text' => trans('auth.user_password_error')
+                'text' => trans('auth.user_password_error'),
+                'userId' => null
             ];
         }
         return response()->json($response);

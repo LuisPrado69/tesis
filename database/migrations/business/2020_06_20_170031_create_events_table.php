@@ -15,16 +15,17 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->text('name');
             $table->text('description');
             $table->date('date');
             $table->date('date_start');
             $table->date('date_end');
-            $table->string('url');
-            // TODO: pending status
-            $table->enum('status', ['ACTIVE', 'INACTIVE'])->nullable();
-            $table->unsignedInteger('category_id')->nullable();
+            $table->text('url');
+            $table->integer('status')->default(1);
+            $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
+            $table->unsignedInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('location')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

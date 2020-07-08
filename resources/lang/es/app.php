@@ -13,9 +13,9 @@ return [
     */
 
     'labels' => [
-        'system_name' => 'NEWPROJECT',
-        'system_slogan' => 'NEWPROJECT SLOGAN',
-        'footer' => 'NEWPROJECT FOOTER',
+        'system_name' => 'MIS EVENTOS CERCANOS',
+        'system_slogan' => 'MIS EVENTOS CERCANOS',
+        'footer' => 'MIS EVENTOS CERCANOS',
         'loading' => 'Espere un momento por favor...',
         'welcome' => 'Bienvenido/a',
         'title' => 'Navegación',
