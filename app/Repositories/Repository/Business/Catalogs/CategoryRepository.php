@@ -95,4 +95,22 @@ class CategoryRepository extends Repository
             'status' => 1
         ])->get();
     }
+
+    /**
+     * Find this model by $userId
+     *
+     * @param int $userId
+     *
+     * @return mixed
+     */
+    public function searchUserId(int $userId)
+    {
+        return $this->model
+            ->leftjoin('category_user', 'category_user.category_id', 'category.id')
+            ->where(
+                'category_user.user_id', $userId
+            )
+            ->select('category.id')
+            ->get();
+    }
 }

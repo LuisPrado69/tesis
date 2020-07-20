@@ -97,6 +97,8 @@ class Acl extends Seeder
             'first_name' => 'Luis',
             'last_name' => 'Prado',
             'document_type' => 'RUC',
+            'latitude' => '-0.2556945',
+            'longitude' => '-78.5539215',
             'document' => '4444444444',
             'email' => 'luis.prado@crifa.com',
             'password' => bcrypt('123456'),

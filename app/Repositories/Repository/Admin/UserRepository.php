@@ -150,6 +150,12 @@ class UserRepository extends Repository
         if (isset($data['email'])) {
             $entity->email = $data['email'];
         }
+        if (isset($data['latitude'])) {
+            $entity->latitude = $data['latitude'];
+        }
+        if (isset($data['longitude'])) {
+            $entity->longitude = $data['longitude'];
+        }
         if (isset($data['photo'])) {
             $photo = $data['photo'];
             $path = env('IMAGES_PATH');

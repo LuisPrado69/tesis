@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Business\API;
 
-use App\Repositories\Repository\Business\Catalogs\CategoryRepository;
+use App\Processes\Business\API\CategoryProcess;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Throwable;
 
 /**
@@ -15,30 +16,53 @@ class CategoryController extends Controller
 {
 
     /**
-     * @var CategoryRepository
+     * @var CategoryProcess
      */
-    protected $categoryRepository;
+    protected $categoryProcess;
 
     /**
      * Constructor to CategoryController.
      *
-     * @param CategoryRepository $categoryRepository
+     * @param CategoryProcess $categoryProcess
      */
     public function __construct(
-        CategoryRepository $categoryRepository
+        CategoryProcess $categoryProcess
     ) {
-        $this->categoryRepository = $categoryRepository;
+        $this->categoryProcess = $categoryProcess;
     }
 
     /**
      * Show index view from model.
      *
+     * @param Request $request
+     *
      * @return JsonResponse
      */
-    public function all()
+    public function searchUserId(Request $request)
     {
         try {
-            $response = $this->categoryRepository->all();
+            $response = $this->categoryProcess->searchUserId($request);
+        } catch (Throwable $e) {
+            $response = defaultCatchHandler($e);
+        }
+        return response()->json($response);
+    }
+
+    /**
+     * Update data from this model.
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function updateUserId(Request $request)
+    {
+        try {
+            $entity = $this->categoryProcess->updateUserId($request);
+            $response = [
+                'type' => $entity['message']['type'],
+                'text' => $entity['message']['text']
+            ];
         } catch (Throwable $e) {
             $response = defaultCatchHandler($e);
         }

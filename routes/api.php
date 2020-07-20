@@ -23,7 +23,7 @@ Route::group([
 ],
     function () {
         Route::get('/searchUserId', 'Business\API\ProfileController@searchUserId');
-        Route::put('/updateUser', 'Business\API\ProfileController@updateUser');
+        Route::post('/updateUser', 'Business\API\ProfileController@updateUser');
     }
 );
 
@@ -34,6 +34,7 @@ Route::group([
     'prefix' => 'category',
 ],
     function () {
-        Route::get('/all', 'Business\API\CategoryController@all');
+        Route::get('/searchUserId', 'Business\API\CategoryController@searchUserId');
+        Route::post('/updateUserId', 'Business\API\CategoryController@updateUserId');
     }
 );

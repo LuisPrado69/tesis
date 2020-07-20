@@ -69,7 +69,11 @@ class ProfileController extends Controller
     {
         try {
             $data = $request->all();
-            $response = $this->userProcess->update($request, $data['userId']);
+            $entity = $this->userProcess->update($request, $data['userId']);
+            $response = [
+                'type' => $entity['message']['type'],
+                'text' => $entity['message']['text']
+            ];
         } catch (Throwable $e) {
             $response = defaultCatchHandler($e);
         }

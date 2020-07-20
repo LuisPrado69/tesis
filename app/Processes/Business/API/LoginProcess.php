@@ -4,9 +4,9 @@ namespace App\Processes\Business\API;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Exception;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Class LoginProcess

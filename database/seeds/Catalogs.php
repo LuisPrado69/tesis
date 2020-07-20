@@ -18,70 +18,42 @@ class Catalogs extends Seeder
         $categoryJson = json_decode('[    
          {
            "id": 1,
-           "name": "CHARLAS"
+           "name": "CINE"
          },
          {
            "id": 2,
-           "name": "CINE"      
-         },
-         {
-           "id": 3,
-           "name": "CONVOCATORIAS"
-         },
-         {
-           "id": 4,
            "name": "CULTURA EN CASA"
          },
          {
-           "id": 5,
+           "id": 3,
            "name": "DANZA"
          },
          {
-           "id": 6,
+           "id": 4,
            "name": "DEPORTE"
          },
          {
-           "id": 7,
-           "name": "ENTRADA LIBRE"
-         },
-         {
-           "id": 8,
+           "id": 5,
            "name": "EXPOSICIONES"
          },
          {
-           "id": 9,
+           "id": 6,
            "name": "FERIAS"
          },
          {
-           "id": 10,
-           "name": " LA MARISCAL"
-         },
-         {
-           "id": 11,
+           "id": 7,
            "name": "LITERATURA"
          },
          {
-           "id": 12,
+           "id": 8,
            "name": "MUSEOS"
          },
          {
-           "id": 13,
+           "id": 9,
            "name": "MÚSICA"
          },
          {
-           "id": 14,
-           "name": "NIÑOS"
-         },
-         {
-           "id": 15,
-           "name": "PATRIMONIO"
-         },
-         {
-           "id": 16,
-           "name": "TALLER"
-         },
-         {
-           "id": 17,
+           "id": 10,
            "name": "TEATRO"
          }
         ]'
@@ -144,7 +116,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7126&nombreEvento=BASCA&ciudad=Quito_",
-           "category_id": 13,
+           "category_id": 9,
            "location_id": 1
          },
          {
@@ -154,7 +126,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7148&nombreEvento=FESTIVAL_DE_CUMBIA_Y_CHICHA&ciudad=Guayaquil",
-           "category_id": 13,
+           "category_id": 9,
            "location_id": 2
          },
          {
@@ -164,7 +136,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7150&nombreEvento=ONCE_SENTIDOS_&ciudad=Cali",
-           "category_id": 13,
+           "category_id": 9,
            "location_id": 3
          },
          {
@@ -174,7 +146,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7099&nombreEvento=VAN_MOZART_-_CONCIERTO_VIRTUAL&ciudad=Guayaquil",
-           "category_id": 13,
+           "category_id": 9,
            "location_id": 4
          },
          {
@@ -184,7 +156,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7147&nombreEvento=SUMMER_ARTS_&ciudad=Quito_",
-           "category_id": 4,
+           "category_id": 2,
            "location_id": 5
          },
          {
@@ -194,7 +166,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7120&nombreEvento=CIRCUITO_ATL%C3%89TICO_NUESTROS_H%C3%89ROES_5K_VIRTUAL_EDICI%C3%93N_ESPECIAL&ciudad=Quito_",
-           "category_id": 4,
+           "category_id": 2,
            "location_id": 1
          },
          {
@@ -204,7 +176,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7142&nombreEvento=Taller_de_felicidad_productiva:_Mantenerse_Motivado_en_tiempos_de_pandemia&ciudad=Guayaquil",
-           "category_id": 13,
+           "category_id": 2,
            "location_id": 2
          },
          {
@@ -214,7 +186,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7123&nombreEvento=EL_MUERTO_AL_HOYO,_EL_VIVO_AL_POLLO&ciudad=Guayaquil",
-           "category_id": 17,
+           "category_id": 10,
            "location_id": 3
          },
          {
@@ -224,7 +196,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7135&nombreEvento=%C2%BFY_SI_FUERAMOS_VIEJITAS?_10_DE_JULIO&ciudad=Guayaquil",
-           "category_id": 17,
+           "category_id": 10,
            "location_id": 4
          },
          {
@@ -234,7 +206,7 @@ class Catalogs extends Seeder
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7146&nombreEvento=EL_PRIMER_BAR_ONLINE_-_LA_VECINA_SIN_CENSURA&ciudad=Guayaquil",
-           "category_id": 17,
+           "category_id": 10,
            "location_id": 5
          }
         ]');
