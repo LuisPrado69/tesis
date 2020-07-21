@@ -6,6 +6,7 @@ use App\Repositories\Library\Exceptions\RepositoryException;
 use App\Repositories\Library\Exceptions\ModelException;
 use App\Repositories\Library\Eloquent\Repository;
 use Illuminate\Container\Container as App;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Collection;
 use App\Models\Business\Events;
 
@@ -91,8 +92,35 @@ class EventsRepository extends Repository
      */
     public function findActive()
     {
-        return $this->model->where([
-            'status' => 1
-        ])->get();
+        return $this->model
+            ->where([
+                'status' => 1
+            ])
+            ->whereDate('date_start', '<=', Date::now())
+            ->whereDate('date_end', '>=', Date::now())
+            ->get();
+    }
+
+    /**
+     * Find only active from this model.
+     *
+     * @param int $userId
+     *
+     * @return mixed
+     */
+    public function searchUserId(int $userId)
+    {
+        return $this->model
+            ->join('category', 'events.category_id', 'category.id')
+            ->join('category_user', 'category_user.category_id', 'category.id')
+            ->join('location', 'events.location_id', 'location.id')
+            ->where([
+                'category_user.user_id' => $userId,
+                'events.status' => 1,
+            ])
+            ->whereDate('date_start', '<=', Date::now())
+            ->whereDate('date_end', '>=', Date::now())
+            ->select('events.*', 'location.name as location_name')
+            ->get();
     }
 }

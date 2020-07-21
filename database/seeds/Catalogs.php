@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Business\CategoryUser;
 use App\Models\Business\Category;
 use App\Models\Business\Location;
 use Illuminate\Database\Seeder;
@@ -220,6 +221,36 @@ class Catalogs extends Seeder
                 'url' => $data->url,
                 'category_id' => $data->category_id,
                 'location_id' => $data->location_id
+            ]);
+        }
+
+        // CategoryUser
+        $categoryUserJson = json_decode('[    
+         {
+           "category_id": 1,
+           "user_id": 4
+         },
+         {
+           "category_id": 2,
+           "user_id": 4
+         },
+         {
+           "category_id": 3,
+           "user_id": 4
+         },
+         {
+           "category_id": 4,
+           "user_id": 4
+         },
+         {
+           "category_id": 10,
+           "user_id": 4
+         }
+        ]');
+        foreach ($categoryUserJson as $data) {
+            CategoryUser::create([
+                'category_id' => $data->category_id,
+                'user_id' => $data->user_id
             ]);
         }
     }

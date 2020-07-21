@@ -39,8 +39,8 @@ return [
     ],
     'messages' => [
         'success' => [
-            'created' => 'Evento creada exitosamente',
-            'updated' => 'Evento editada exitosamente'
+            'created' => 'Evento creado exitosamente',
+            'updated' => 'Evento editado exitosamente'
         ],
         'errors' => [
             'create' => 'Ha ocurrido un error al intentar crear el evento',

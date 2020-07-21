@@ -80,13 +80,12 @@ class CategoryProcess
     public function updateUserId(Request $request)
     {
         $data = $request->all();
-        $userCategories = $this->categoryUserRepository->searchUserIdField($data['userId'], $data['name']);
+        $userCategories = $this->categoryUserRepository->searchUserIdField($data['userId'], $data['categoryId']);
         if ($userCategories) {
             $this->categoryUserRepository->delete($userCategories->id);
         } else {
-            $category = $this->categoryRepository->findBy('name', $data['name']);
             $dataCategoryUser = [
-                'category_id' => $category->id,
+                'category_id' => $data['categoryId'],
                 'user_id' => $data['userId']
             ];
             $this->categoryUserRepository->createFromArray($dataCategoryUser);

@@ -5,19 +5,18 @@ namespace App\Repositories\Repository\Business;
 use App\Repositories\Library\Exceptions\RepositoryException;
 use App\Repositories\Library\Eloquent\Repository;
 use Illuminate\Container\Container as App;
-use App\Models\Business\CategoryUser;
+use App\Models\Business\EventsUser;
 use Illuminate\Support\Collection;
 
-
 /**
- * Class CategoryUserRepository
+ * Class EventsUserRepository
  * @package App\Repositories\Repository\Business\Catalogs
  */
-class CategoryUserRepository extends Repository
+class EventsUserRepository extends Repository
 {
 
     /**
-     * Constructor to CategoryUserRepository.
+     * Constructor to EventsUserRepository.
      *
      * @param App $app
      * @param Collection $collection
@@ -36,18 +35,18 @@ class CategoryUserRepository extends Repository
      */
     function model()
     {
-        return CategoryUser::class;
+        return EventsUser::class;
     }
 
     /**
      * Update in database information to field.
      *
      * @param array $data
-     * @param CategoryUser $entity
+     * @param EventsUser $entity
      *
-     * @return CategoryUser|null
+     * @return EventsUser|null
      */
-    public function updateFromArray(array $data, CategoryUser $entity)
+    public function updateFromArray(array $data, EventsUser $entity)
     {
         $entity->fill($data);
         $entity->save();
@@ -71,16 +70,16 @@ class CategoryUserRepository extends Repository
      * Find this register by $userId
      *
      * @param int $userId
-     * @param int $categoryId
+     * @param int $eventId
      *
      * @return mixed
      */
-    public function searchUserIdField(int $userId, int $categoryId)
+    public function searchUserIdField(int $userId, int $eventId)
     {
         return $this->model
             ->where([
                 'user_id' => $userId,
-                'category_id' => $categoryId
+                'event_id' => $eventId
             ])
             ->first();
     }

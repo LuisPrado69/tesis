@@ -38,3 +38,15 @@ Route::group([
         Route::post('/updateUserId', 'Business\API\CategoryController@updateUserId');
     }
 );
+
+/* ------------- */
+/* Events */
+/* ------------- */
+Route::group([
+    'prefix' => 'events',
+],
+    function () {
+        Route::get('/searchUserId', 'Business\API\EventsController@searchUserId');
+        Route::post('/updateUserId', 'Business\API\EventsController@updateUserId');
+    }
+);
