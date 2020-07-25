@@ -30,6 +30,8 @@
     <link href="{{ asset('assets/vendor/gentelella/css/custom.min.css') }}" rel="stylesheet"/>
     <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet"/>
     <link href="{{ mix('assets/css/theme.css') }}" rel="stylesheet"/>
+    {{--datetimepicker--}}
+    <link href="{{ asset('assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet"/>
 @endsection
 
 @push('body_classes') nav-md @endpush
@@ -148,5 +150,6 @@
     <script src="{{ asset('assets/vendor/bootbox/bootbox.js') }}"></script>
 
     <script src="{{ asset('assets/js/main.js') }}"></script>
-
+    {{--datetimepicker--}}
+    <script src="{{ asset('assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
 @endsection

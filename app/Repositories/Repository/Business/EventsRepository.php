@@ -123,4 +123,22 @@ class EventsRepository extends Repository
             ->select('events.*', 'location.name as location_name')
             ->get();
     }
+
+    /**
+     * Find emails by rol ACC
+     *
+     * @param int $categoryId
+     *
+     * @return mixed
+     */
+    public function findCategoryUser(int $categoryId)
+    {
+        return $this->model
+            ->join('category', 'events.category_id', '=', 'category.id')
+            ->join('category_user', 'category_user.category_id', '=', 'category.id')
+            ->join('users', 'users.id', '=', 'category_user.user_id')
+            ->select('users.email')
+            ->where('events.category_id', $categoryId)
+            ->get()->toArray();
+    }
 }

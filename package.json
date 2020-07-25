@@ -37,6 +37,7 @@
     "timepicker": "^1.11.15",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.6.10",
-    "when": "^3.7.8"
+    "when": "^3.7.8",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
   }
 }

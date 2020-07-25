@@ -2,8 +2,13 @@
 
 namespace App\Processes\Business;
 
+use App\Mail\EventNotification;
+use App\Repositories\Repository\Business\Catalogs\CategoryRepository;
+use App\Repositories\Repository\Business\Catalogs\LocationRepository;
 use App\Repositories\Repository\Business\EventsRepository;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Mail;
+use App\Models\Business\Events;
 use App\Models\System\Setting;
 use Illuminate\Http\Request;
 use Exception;
@@ -21,14 +26,30 @@ class EventsProcess
     protected $eventsRepository;
 
     /**
+     * @var CategoryRepository
+     */
+    protected $categoryRepository;
+
+    /**
+     * @var LocationRepository
+     */
+    protected $locationRepository;
+
+    /**
      * Constructor to EventsProcess.
      *
      * @param EventsRepository $eventsRepository
+     * @param CategoryRepository $categoryRepository
+     * @param LocationRepository $locationRepository
      */
     public function __construct(
-        EventsRepository $eventsRepository
+        EventsRepository $eventsRepository,
+        CategoryRepository $categoryRepository,
+        LocationRepository $locationRepository
     ) {
         $this->eventsRepository = $eventsRepository;
+        $this->categoryRepository = $categoryRepository;
+        $this->locationRepository = $locationRepository;
     }
 
     /**
@@ -87,6 +108,28 @@ class EventsProcess
     /**
      * Return view to edit model.
      *
+     * @return array
+     * @throws Exception
+     */
+    public function create()
+    {
+        $categories = $this->categoryRepository->findActive();
+        if (!$categories) {
+            throw new Exception(trans('events.messages.errors.create'), 1000);
+        }
+        $locations = $this->locationRepository->findActive();
+        if (!$locations) {
+            throw new Exception(trans('events.messages.errors.create'), 1000);
+        }
+        return [
+            'categories' => $categories,
+            'locations' => $locations
+        ];
+    }
+
+    /**
+     * Return view to edit model.
+     *
      * @param int $id
      *
      * @return array
@@ -98,8 +141,18 @@ class EventsProcess
         if (!$entity) {
             throw new Exception(trans('events.messages.errors.create'), 1000);
         }
+        $categories = $this->categoryRepository->findActive();
+        if (!$categories) {
+            throw new Exception(trans('events.messages.errors.create'), 1000);
+        }
+        $locations = $this->locationRepository->findActive();
+        if (!$locations) {
+            throw new Exception(trans('events.messages.errors.create'), 1000);
+        }
         return [
-            'entity' => $entity
+            'entity' => $entity,
+            'categories' => $categories,
+            'locations' => $locations
         ];
     }
 
@@ -160,5 +213,18 @@ class EventsProcess
             $result = $this->eventsRepository->exists(['name' => $request->name]);
         }
         return $result;
+    }
+
+    /**
+     * Send email personal factory.
+     *
+     * @param Events $event
+     */
+    public function sendEmail(Events $event)
+    {
+        $email_notification = $this->eventsRepository->findCategoryUser((int)$event->category_id);
+        if (count($email_notification)) {
+            Mail::to($email_notification)->send(new EventNotification($event));
+        }
     }
 }

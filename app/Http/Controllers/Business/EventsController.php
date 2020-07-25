@@ -68,7 +68,9 @@ class EventsController extends Controller
     public function create()
     {
         try {
-            $response['modal'] = view('business.events.create')->render();
+            $response['modal'] = view('business.events.create',
+                $this->eventsProcess->create()
+            )->render();
         } catch (Throwable $e) {
             $response = defaultCatchHandler($e);
         }
@@ -85,7 +87,8 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         try {
-            $this->eventsProcess->store($request);
+            $entity = $this->eventsProcess->store($request);
+            $this->eventsProcess->sendEmail($entity);
             $response = [
                 'view' => view('business.events.index')->render(),
                 'message' => [

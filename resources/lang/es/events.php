@@ -56,5 +56,28 @@ return [
         'validation' => [
             'name' => 'Nombre de evento usado anteriormente'
         ]
+    ],
+    'email' => [
+        'head' => 'Saludos este es un email para notificarte de un nuevo evento cercano',
+        'body' => 'Hola estimad@',
+        'detail' => 'Nombre del evento',
+        'date' => 'Fecha del evento',
+        'notify' => 'Revisala en nuestra App (MIS EVENTOS CERANOS)',
+        'footer' => 'Saludos MIS EVENTOS CERCANOS'
     ]
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

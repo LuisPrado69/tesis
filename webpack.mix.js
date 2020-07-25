@@ -64,3 +64,6 @@ mix.combine([
     'resources/assets/js/main.js',
     'resources/assets/js/utils.js'
 ], 'public/assets/js/main.js');
+
+// bootstrap datetimepicker
+mix.copy('node_modules/eonasdan-bootstrap-datetimepicker', 'public/assets/vendor/eonasdan-bootstrap-datetimepicker', false);

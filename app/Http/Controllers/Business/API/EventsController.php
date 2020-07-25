@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Business\API;
 
-use App\Processes\Business\API\CategoryProcess;
 use App\Processes\Business\API\EventsProcess;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Throwable;
 
 /**
@@ -60,7 +58,6 @@ class EventsController extends Controller
     public function updateUserId(Request $request)
     {
         try {
-            Log::info("SIIII");
             $entity = $this->eventsProcess->updateUserId($request);
             $response = [
                 'type' => $entity['message']['type'],
