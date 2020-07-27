@@ -10,7 +10,7 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>{{ trans('events.email.body') }}</td>
+        <td>{{ trans('events.email.body') }} <b>{{ $userName }}</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td>

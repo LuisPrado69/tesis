@@ -73,7 +73,7 @@ class EventsProcess
             ->setRowId('id')
             ->addColumn('enabled', function ($entity) use ($user) {
                 $checked = $entity->status ? 'checked' : '';
-                if ($user->can('enable_disable.events.catalogs')) {
+                if ($user->can('enable_disable.events')) {
                     return "<label><input type='checkbox' class='js-switch js-switch-enabled' {$checked}/></label>";
                 }
             })
@@ -224,7 +224,9 @@ class EventsProcess
     {
         $email_notification = $this->eventsRepository->findCategoryUser((int)$event->category_id);
         if (count($email_notification)) {
-            Mail::to($email_notification)->send(new EventNotification($event));
+            foreach ($email_notification as $data) {
+                Mail::to($data['email'])->send(new EventNotification($event, $data['fullname']));
+            }
         }
     }
 }

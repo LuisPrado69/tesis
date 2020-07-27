@@ -9,6 +9,7 @@ use Illuminate\Container\Container as App;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Collection;
 use App\Models\Business\Events;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class EventsRepository
@@ -137,7 +138,10 @@ class EventsRepository extends Repository
             ->join('category', 'events.category_id', '=', 'category.id')
             ->join('category_user', 'category_user.category_id', '=', 'category.id')
             ->join('users', 'users.id', '=', 'category_user.user_id')
-            ->select('users.email')
+            ->select('users.email',
+                DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname')
+            )
+            ->distinct('users.email', DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname'))
             ->where('events.category_id', $categoryId)
             ->get()->toArray();
     }

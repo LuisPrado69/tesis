@@ -15,15 +15,17 @@ class EventNotification extends Mailable
     use Queueable, SerializesModels;
 
     public $event;
+    public $userName;
 
     /**
      * Create a new message instance.
      *
      * @param $event
      */
-    public function __construct($event)
+    public function __construct($event, $userName)
     {
         $this->event = $event;
+        $this->userName = $userName;
     }
 
     /**

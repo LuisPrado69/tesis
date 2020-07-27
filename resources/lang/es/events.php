@@ -62,8 +62,8 @@ return [
         'body' => 'Hola estimad@',
         'detail' => 'Nombre del evento',
         'date' => 'Fecha del evento',
-        'notify' => 'Revisala en nuestra App (MIS EVENTOS CERANOS)',
-        'footer' => 'Saludos MIS EVENTOS CERCANOS'
+        'notify' => 'Revisala en nuestra App',
+        'footer' => 'Saludos (MIS EVENTOS CERCANOS)'
     ]
 ];
 
