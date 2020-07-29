@@ -91,7 +91,7 @@ class Acl extends Seeder
             'enabled' => 1
         ]);
 
-        $client = User::create([
+        $client1 = User::create([
             'id' => 4,
             'username' => 'luis.prado@crifa.com',
             'first_name' => 'Luis',
@@ -106,7 +106,41 @@ class Acl extends Seeder
             'changed_password' => 1,
             'enabled' => 1
         ]);
-        $client->assignRole($clientRole);
+        $client1->assignRole($clientRole);
+
+        $client2 = User::create([
+            'id' => 5,
+            'username' => 'luis6969uchiha@outlook.com',
+            'first_name' => 'Ramiro',
+            'last_name' => 'Prado',
+            'document_type' => 'RUC',
+            'latitude' => '-0.2556945',
+            'longitude' => '-78.5539215',
+            'document' => '4444444444',
+            'email' => 'luis6969uchiha@outlook.com',
+            'password' => bcrypt('123456'),
+            'remember_token' => md5(uniqid()),
+            'changed_password' => 1,
+            'enabled' => 1
+        ]);
+        $client2->assignRole($clientRole);
+
+        $client3 = User::create([
+            'id' => 6,
+            'username' => 'uis6979@gmail.com',
+            'first_name' => 'Nicolas',
+            'last_name' => 'Prado',
+            'document_type' => 'RUC',
+            'latitude' => '-0.2556945',
+            'longitude' => '-78.5539215',
+            'document' => '4444444444',
+            'email' => 'uis6979@gmail.com',
+            'password' => bcrypt('123456'),
+            'remember_token' => md5(uniqid()),
+            'changed_password' => 1,
+            'enabled' => 1
+        ]);
+        $client3->assignRole($clientRole);
 
         /** ------------------
          * Add all permissions to admin and developer roles

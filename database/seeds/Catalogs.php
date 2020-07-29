@@ -111,42 +111,42 @@ class Catalogs extends Seeder
         // Events
         $eventsJson = json_decode('[    
          {
-           "name": "CONCIERTO BASCA",
-           "description": "CONCIERTO POR LAS FIESTAS DE QUITO",
-           "date": "2020/07/11",
+           "name": "CONCIERTO Katie Angel",
+           "description": "Katie Angel EN VIVO ONLINE UN CONCIERTO INTIMO",
+           "date": "2020/09/11",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7126&nombreEvento=BASCA&ciudad=Quito_",
+           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7021&nombreEvento=Katie_Angel_Tour_Invencible_-_Quito&ciudad=Quito_",
            "category_id": 9,
            "location_id": 1
          },
          {
-           "name": "FESTIVAL DE CUMBIA Y CHICHA",
-           "description": "FESTIVAL DE CUMBIA Y CHICHA",
-           "date": "2020/07/18",
+           "name": "CONCIERTO NACH + ZONA GANJAH",
+           "description": "NACH + ZONA GANJAH DESDE CASA EN VIVO ONLINE UN CONCIERTO INTIMO",
+           "date": "2020/11/13",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7148&nombreEvento=FESTIVAL_DE_CUMBIA_Y_CHICHA&ciudad=Guayaquil",
+           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6923&nombreEvento=NACH_+_ZONA_GANJAH_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 2
          },
          {
-           "name": "ONCE SENTIDOS",
-           "description": "ONCE SENTIDOS",
-           "date": "2020/07/20",
+           "name": "CONCIERTO LP",
+           "description": "LP DESDE CASA EN VIVO ONLINE UN CONCIERTO INTIMO",
+           "date": "2020/11/20",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7150&nombreEvento=ONCE_SENTIDOS_&ciudad=Cali",
+           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6884&nombreEvento=LP_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 3
          },
          {
-           "name": "VAN MOZART - CONCIERTO",
-           "description": "VAN MOZART - CONCIERTO",
-           "date": "2020/07/25",
+           "name": "CONCIERTO BARON ROJO",
+           "description": "BARON ROJO EL ÚLTIMO VUELO DESDE CASA EN VIVO ONLINE UN CONCIERTO INTIMO",
+           "date": "2021/03/06",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7099&nombreEvento=VAN_MOZART_-_CONCIERTO_VIRTUAL&ciudad=Guayaquil",
+           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6472&nombreEvento=BARON_ROJO_EL_ULTIMO_VUELO_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 4
          },
@@ -161,22 +161,22 @@ class Catalogs extends Seeder
            "location_id": 5
          },
          {
-           "name": "CIRCUITO ATLÉTICO NUESTROS HÉROES",
-           "description": "CIRCUITO ATLÉTICO NUESTROS HÉROES",
-           "date": "2020/07/26",
+           "name": "CONGRESO INTERNACIONAL CIENCIA DEL ÉXITO",
+           "description": "CONGRESO INTERNACIONAL CIENCIA DEL ÉXITO PNL 2020",
+           "date": "2020/08/01",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7120&nombreEvento=CIRCUITO_ATL%C3%89TICO_NUESTROS_H%C3%89ROES_5K_VIRTUAL_EDICI%C3%93N_ESPECIAL&ciudad=Quito_",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7097&nombreEvento=CONGRESO_INTERNACIONAL_CIENCIA_DEL_%C3%89XITO_PNL_2020&ciudad=Quito",
            "category_id": 2,
            "location_id": 1
          },
          {
-           "name": "Taller de felicidad productiva: Mantenerse Motivado en tiempos de pandemia",
-           "description": "Taller de felicidad productiva: Mantenerse Motivado en tiempos de pandemia",
-           "date": "2020/07/07",
+           "name": "Empresas en Tiempo de Crisis",
+           "description": "Comunicación Saludable Dentro de la Empresa en Tiempo de Crisis",
+           "date": "2020/07/28",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7142&nombreEvento=Taller_de_felicidad_productiva:_Mantenerse_Motivado_en_tiempos_de_pandemia&ciudad=Guayaquil",
+           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7107&nombreEvento=Comunicaci%C3%B3n_Saludable_Dentro_de_la_Empresa_en_Tiempo_de_Crisis&ciudad=Quito",
            "category_id": 2,
            "location_id": 2
          },
@@ -186,7 +186,7 @@ class Catalogs extends Seeder
            "date": "2020/07/10",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7123&nombreEvento=EL_MUERTO_AL_HOYO,_EL_VIVO_AL_POLLO&ciudad=Guayaquil",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7123&nombreEvento=EL_MUERTO_AL_HOYO,_EL_VIVO_AL_POLLO&ciudad=Quito",
            "category_id": 10,
            "location_id": 3
          },
@@ -196,7 +196,7 @@ class Catalogs extends Seeder
            "date": "2020/07/10",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7135&nombreEvento=%C2%BFY_SI_FUERAMOS_VIEJITAS?_10_DE_JULIO&ciudad=Guayaquil",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7135&nombreEvento=%C2%BFY_SI_FUERAMOS_VIEJITAS?_10_DE_JULIO&ciudad=Quito",
            "category_id": 10,
            "location_id": 4
          },
@@ -206,7 +206,7 @@ class Catalogs extends Seeder
            "date": "2020/07/10",
            "date_start": "2020/01/01",
            "date_end": "2020/12/24",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7146&nombreEvento=EL_PRIMER_BAR_ONLINE_-_LA_VECINA_SIN_CENSURA&ciudad=Guayaquil",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7146&nombreEvento=EL_PRIMER_BAR_ONLINE_-_LA_VECINA_SIN_CENSURA&ciudad=Quito",
            "category_id": 10,
            "location_id": 5
          }
@@ -245,6 +245,46 @@ class Catalogs extends Seeder
          {
            "category_id": 10,
            "user_id": 4
+         },
+         {
+           "category_id": 1,
+           "user_id": 5
+         },
+         {
+           "category_id": 2,
+           "user_id": 5
+         },
+         {
+           "category_id": 3,
+           "user_id": 5
+         },
+         {
+           "category_id": 4,
+           "user_id": 5
+         },
+         {
+           "category_id": 10,
+           "user_id": 5
+         },
+         {
+           "category_id": 1,
+           "user_id": 6
+         },
+         {
+           "category_id": 2,
+           "user_id": 6
+         },
+         {
+           "category_id": 3,
+           "user_id": 6
+         },
+         {
+           "category_id": 4,
+           "user_id": 6
+         },
+         {
+           "category_id": 10,
+           "user_id": 6
          }
         ]');
         foreach ($categoryUserJson as $data) {
