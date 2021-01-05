@@ -113,9 +113,9 @@ class Catalogs extends Seeder
          {
            "name": "CONCIERTO Katie Angel",
            "description": "Katie Angel EN VIVO ONLINE UN CONCIERTO INTIMO",
-           "date": "2020/09/11",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/11 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7021&nombreEvento=Katie_Angel_Tour_Invencible_-_Quito&ciudad=Quito_",
            "category_id": 9,
            "location_id": 1
@@ -123,9 +123,9 @@ class Catalogs extends Seeder
          {
            "name": "CONCIERTO NACH + ZONA GANJAH",
            "description": "NACH + ZONA GANJAH DESDE CASA EN VIVO ONLINE UN CONCIERTO INTIMO",
-           "date": "2020/11/13",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/13 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6923&nombreEvento=NACH_+_ZONA_GANJAH_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 2
@@ -133,9 +133,9 @@ class Catalogs extends Seeder
          {
            "name": "CONCIERTO LP",
            "description": "LP DESDE CASA EN VIVO ONLINE UN CONCIERTO INTIMO",
-           "date": "2020/11/20",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/20 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6884&nombreEvento=LP_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 3
@@ -143,9 +143,9 @@ class Catalogs extends Seeder
          {
            "name": "CONCIERTO BARON ROJO",
            "description": "BARON ROJO EL ÚLTIMO VUELO DESDE CASA EN VIVO ONLINE UN CONCIERTO INTIMO",
-           "date": "2021/03/06",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/06 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6472&nombreEvento=BARON_ROJO_EL_ULTIMO_VUELO_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 4
@@ -153,9 +153,9 @@ class Catalogs extends Seeder
          {
            "name": "SUMMER ARTS",
            "description": "SUMMER ARTS",
-           "date": "2020/07/08",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/08 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7147&nombreEvento=SUMMER_ARTS_&ciudad=Quito_",
            "category_id": 2,
            "location_id": 5
@@ -163,9 +163,9 @@ class Catalogs extends Seeder
          {
            "name": "CONGRESO INTERNACIONAL CIENCIA DEL ÉXITO",
            "description": "CONGRESO INTERNACIONAL CIENCIA DEL ÉXITO PNL 2020",
-           "date": "2020/08/01",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/01 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7097&nombreEvento=CONGRESO_INTERNACIONAL_CIENCIA_DEL_%C3%89XITO_PNL_2020&ciudad=Quito",
            "category_id": 2,
            "location_id": 1
@@ -173,9 +173,9 @@ class Catalogs extends Seeder
          {
            "name": "Empresas en Tiempo de Crisis",
            "description": "Comunicación Saludable Dentro de la Empresa en Tiempo de Crisis",
-           "date": "2020/07/28",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/28 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7107&nombreEvento=Comunicaci%C3%B3n_Saludable_Dentro_de_la_Empresa_en_Tiempo_de_Crisis&ciudad=Quito",
            "category_id": 2,
            "location_id": 2
@@ -183,9 +183,9 @@ class Catalogs extends Seeder
          {
            "name": "EL MUERTO AL HOYO, EL VIVO AL POLLO",
            "description": "EL MUERTO AL HOYO, EL VIVO AL POLLO",
-           "date": "2020/07/10",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/10 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7123&nombreEvento=EL_MUERTO_AL_HOYO,_EL_VIVO_AL_POLLO&ciudad=Quito",
            "category_id": 10,
            "location_id": 3
@@ -193,9 +193,9 @@ class Catalogs extends Seeder
          {
            "name": "¿Y SI FUERAMOS VIEJITAS?",
            "description": "¿Y SI FUERAMOS VIEJITAS?",
-           "date": "2020/07/10",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/10 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7135&nombreEvento=%C2%BFY_SI_FUERAMOS_VIEJITAS?_10_DE_JULIO&ciudad=Quito",
            "category_id": 10,
            "location_id": 4
@@ -203,9 +203,9 @@ class Catalogs extends Seeder
          {
            "name": "EL PRIMER BAR ONLINE - LA VECINA SIN CENSURA",
            "description": "EL PRIMER BAR ONLINE - LA VECINA SIN CENSURA",
-           "date": "2020/07/10",
-           "date_start": "2020/01/01",
-           "date_end": "2020/12/24",
+           "date": "2021/01/10 16:00:00",
+           "date_start": "2021/01/01",
+           "date_end": "2021/12/24",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7146&nombreEvento=EL_PRIMER_BAR_ONLINE_-_LA_VECINA_SIN_CENSURA&ciudad=Quito",
            "category_id": 10,
            "location_id": 5

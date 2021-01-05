@@ -92,7 +92,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
-                        <input type="text" name="date" id="date" class="form-control date-picker" autocomplete="off" readonly value="{{ $entity->date }}"
+                        <input type="text" name="date" id="date" class="form-control date-time-picker" autocomplete="off" readonly value="{{ $entity->date }}"
                                placeholder="{{ trans('events.placeholders.date') }}"/>
                     </div>
                 </div>
@@ -125,6 +125,18 @@
     $(() => {
 
         let $form = $('#events_update_fm');
+
+        $('.date-picker').datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: 'es-es',
+            ignoreReadonly: true
+        });
+
+        $('.date-time-picker').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm',
+            locale: 'es-es',
+            ignoreReadonly: true
+        });
 
         $validateDefaults.rules = {
             name: {

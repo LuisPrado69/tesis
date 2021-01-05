@@ -84,7 +84,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
-                        <input type="text" name="date" id="date" class="form-control date-picker" autocomplete="off" readonly placeholder="{{ trans('events.placeholders.date') }}"/>
+                        <input type="text" name="date" id="date" class="form-control date-time-picker" autocomplete="off" readonly placeholder="{{ trans('events.placeholders.date') }}"/>
                     </div>
                 </div>
                 <div class="item form-group">
@@ -122,6 +122,12 @@
 
         $('.date-picker').datetimepicker({
             format: 'YYYY-MM-DD',
+            locale: 'es-es',
+            ignoreReadonly: true
+        });
+
+        $('.date-time-picker').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm',
             locale: 'es-es',
             ignoreReadonly: true
         });

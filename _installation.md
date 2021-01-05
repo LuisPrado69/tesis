@@ -62,3 +62,5 @@
     * Los siguientes comando son neesarios para que Laravel pueda escribir en Storage y Cache. 
     * `sudo chgrp -R www-data $_PATH/public_html/storage $_PATH/public_html/bootstrap/cache`
     * `sudo chmod -R ug+rwx $_PATH/public_html/storage $_PATH/public_html/bootstrap/cache`
+    
+    

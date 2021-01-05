@@ -2,8 +2,17 @@
 
 namespace App\Processes\Business\API;
 
+use App\Models\Business\Events;
 use App\Repositories\Repository\Business\EventsUserRepository;
 use App\Repositories\Repository\Business\EventsRepository;
+use DateInterval;
+use DateTime;
+use Google_Client;
+use Google_Service_Calendar;
+use Google_Service_Calendar_Event;
+use Google_Service_Calendar_EventDateTime;
+use Google_Service_Exception;
+use http\Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -102,6 +111,7 @@ class EventsProcess
      * @param Request $request
      *
      * @return array[]
+     * @throws \Exception
      */
     public function updateUserId(Request $request)
     {
@@ -115,6 +125,8 @@ class EventsProcess
                 'user_id' => $data['userId']
             ];
             $this->eventsUserRepository->createFromArray($dataUserEvent);
+            $event = $this->eventsRepository->find($data['eventId']);
+            self::createEventGoogleCalendar($event);
         }
         $response = [
             'message' => [
@@ -123,5 +135,51 @@ class EventsProcess
             ]
         ];
         return $response;
+    }
+
+    /**
+     * Create event google calendar.
+     *
+     * @param Events $event
+     *
+     * @throws \Exception
+     */
+    private function createEventGoogleCalendar(Events $event){
+        date_default_timezone_set('America/Guayaquil');
+        $client = new Google_Client();
+        $client->useApplicationDefaultCredentials();
+        $client->setScopes(['https://www.googleapis.com/auth/calendar']);
+        // Id calendar
+        $id_calendar = env('ID_CALENDAR');
+        $datetime_start = new DateTime($event->date);
+        $datetime_end = new DateTime($event->date);
+        // Add one hour to date
+        $time_end = $datetime_end->add(new DateInterval('PT1H'));
+        //datetime must be format RFC3339
+        $time_start = $datetime_start->format(\DateTime::RFC3339);
+        $time_end = $time_end->format(\DateTime::RFC3339);
+        $eventName = $event->name;
+        try {
+            $calendarService = new Google_Service_Calendar($client);
+            //Insert events
+            $event = new Google_Service_Calendar_Event();
+            $event->setSummary($eventName);
+            $event->setDescription($event->description);
+            //Start date
+            $start = new Google_Service_Calendar_EventDateTime();
+            $start->setDateTime($time_start);
+            $event->setStart($start);
+            //End Date
+            $end = new Google_Service_Calendar_EventDateTime();
+            $end->setDateTime($time_end);
+            $event->setEnd($end);
+            $optionalArguments = array("sendNotifications"=>true);
+            $calendarService->events->insert($id_calendar, $event, $optionalArguments);
+        } catch (Google_Service_Exception $gs) {
+            $m = json_decode($gs->getMessage());
+            $m = $m->error->message;
+        } catch (Exception $e) {
+            $m = $e->getMessage();
+        }
     }
 }
