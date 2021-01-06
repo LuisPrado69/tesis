@@ -96,5 +96,11 @@ return [
                 'not_found' => 'El usuario no existe o no está disponible',
             ],
         ],
+    ],
+    'email' => [
+        'head' => 'Saludos este es un email para recuperar la contraseña',
+        'body' => 'Hola estimad@',
+        'notify' => 'Revisala en el siguiente link:',
+        'footer' => 'Saludos (MIS EVENTOS CERCANOS)'
     ]
 ];

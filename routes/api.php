@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 */
 // Login
 Route::get('/login', 'Business\API\LoginController@login')->name('login');
+Route::get('/register', 'Business\API\LoginController@register')->name('register');
+Route::get('/forgotPassword', 'Business\API\LoginController@forgotPassword')->name('forgotPassword');
 
 /* ------------- */
 /* Profile */

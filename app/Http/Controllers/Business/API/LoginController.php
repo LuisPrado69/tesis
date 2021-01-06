@@ -31,7 +31,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Verify in database new model.
+     * Verify in database user login.
      *
      * @param Request $request
      *
@@ -51,6 +51,54 @@ class LoginController extends Controller
                 'type' => 'error',
                 'text' => trans('auth.user_password_error'),
                 'userId' => null
+            ];
+        }
+        return response()->json($response);
+    }
+
+    /**
+     * Verify in database email.
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function forgotPassword(Request $request)
+    {
+        try {
+            $login = $this->loginProcess->forgotPassword($request);
+            $response = [
+                'type' => $login['type'],
+                'text' => $login['text']
+            ];
+        } catch (Throwable $e) {
+            $response = [
+                'type' => 'error',
+                'text' => trans('auth.email_not_found')
+            ];
+        }
+        return response()->json($response);
+    }
+
+    /**
+     * Create in database new model.
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function register(Request $request)
+    {
+        try {
+            $login = $this->loginProcess->register($request);
+            $response = [
+                'type' => $login['type'],
+                'text' => $login['text']
+            ];
+        } catch (Throwable $e) {
+            $response = [
+                'type' => 'error',
+                'text' => trans('auth.user_password_error')
             ];
         }
         return response()->json($response);

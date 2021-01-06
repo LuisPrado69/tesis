@@ -2,15 +2,17 @@
 
 namespace App\Processes\Business;
 
-use App\Mail\EventNotification;
 use App\Repositories\Repository\Business\Catalogs\CategoryRepository;
 use App\Repositories\Repository\Business\Catalogs\LocationRepository;
 use App\Repositories\Repository\Business\EventsRepository;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailForgotPassword;
+use App\Mail\EventNotification;
 use App\Models\Business\Events;
 use App\Models\System\Setting;
 use Illuminate\Http\Request;
+use App\Models\System\User;
 use Exception;
 
 /**
@@ -46,7 +48,8 @@ class EventsProcess
         EventsRepository $eventsRepository,
         CategoryRepository $categoryRepository,
         LocationRepository $locationRepository
-    ) {
+    )
+    {
         $this->eventsRepository = $eventsRepository;
         $this->categoryRepository = $categoryRepository;
         $this->locationRepository = $locationRepository;
@@ -228,5 +231,15 @@ class EventsProcess
                 Mail::to($data['email'])->send(new EventNotification($event, $data['fullname']));
             }
         }
+    }
+
+    /**
+     * Send email personal factory.
+     *
+     * @param User $user
+     */
+    public function sendEmailForgotPassword(User $user)
+    {
+        Mail::to($user->email)->send(new EmailForgotPassword($user->fullName()));
     }
 }
