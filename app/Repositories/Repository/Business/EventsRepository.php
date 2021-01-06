@@ -138,11 +138,12 @@ class EventsRepository extends Repository
             ->join('category', 'events.category_id', '=', 'category.id')
             ->join('category_user', 'category_user.category_id', '=', 'category.id')
             ->join('users', 'users.id', '=', 'category_user.user_id')
+            ->join('location', 'location.id', '=', 'events.location_id')
             ->select('users.email',
-                DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname')
+                DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname'),
+                DB::raw('(6371*ACOS(COS(RADIANS(users.latitude))*COS(RADIANS(location.latitude))*COS(RADIANS(location.longitude)-RADIANS(users.latitude))+SIN(RADIANS(users.latitude))*SIN(RADIANS(location.latitude)))+2.5) AS distance')
             )
             ->distinct('users.email', DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname'))
-            ->where('events.category_id', $categoryId)
-            ->get()->toArray();
+            ->where('events.category_id', $categoryId)->get()->toArray();
     }
 }
