@@ -58,7 +58,7 @@ return [
         ]
     ],
     'email' => [
-        'head' => 'Saludos este es un email para notificarte de un nuevo evento cercano',
+        'head' => 'Saludos, este es un email para notificarte de un nuevo evento cercano',
         'body' => 'Hola estimad@',
         'detail' => 'Nombre del evento',
         'date' => 'Fecha del evento',
