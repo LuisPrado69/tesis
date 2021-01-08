@@ -22,7 +22,11 @@ class AjaxMiddleware
             'logout',
             'login',
             'assets/images',
-            'confirmed_email'
+            'confirmed_email',
+            'password_reset',
+            'password_reset',
+            'password_send_email',
+            'user/verify/{token}'
         ];
 
         if (!$request->ajax()) {

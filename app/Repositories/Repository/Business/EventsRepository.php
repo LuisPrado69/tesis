@@ -121,7 +121,7 @@ class EventsRepository extends Repository
             ])
             ->whereDate('date_start', '<=', Date::now())
             ->whereDate('date_end', '>=', Date::now())
-            ->select('events.*', 'location.name as location_name')
+            ->select('events.*', 'location.name as location_name', 'location.latitude', 'location.longitude')
             ->get();
     }
 

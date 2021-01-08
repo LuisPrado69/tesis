@@ -2,34 +2,87 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use App\Repositories\Repository\Configuration\SettingRepository;
+use App\Repositories\Repository\Admin\UserRepository;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
+use App\Mail\PasswordRecoveryMail;
+use Illuminate\Http\Request;
+use App\Models\System\User;
 
-/**
- * Class ForgotPasswordController
- * @package App\Http\Controllers\Auth
- */
 class ForgotPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset emails and
-    | includes a trait which assists in sending these notifications from
-    | your application to your users. Feel free to explore this trait.
-    |
-    */
-    use SendsPasswordResetEmails;
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * @var SettingRepository
      */
-    public function __construct()
+    protected $settingRepository;
+
+    /**
+     * @var UserRepository
+     */
+    protected $userRepository;
+
+    /**
+     * ForgotPasswordController constructor.
+     *
+     * @param SettingRepository $settingRepository
+     * @param UserRepository $userRepository
+     */
+    public function __construct(
+        SettingRepository $settingRepository,
+        UserRepository $userRepository
+    )
     {
-        $this->middleware('guest');
+        $this->settingRepository = $settingRepository;
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendEmail(Request $request) {
+        try {
+            $user = User::where('email', $request->email)->first();
+            if(isset($user) ){
+                $data['enabled'] = true;
+                $data['password'] = str_random(8);
+                $data['changed_password'] = false;
+                $this->userRepository->updateFromArray($data, $user);
+                // send email
+                Mail::to($user->email)->send(new PasswordRecoveryMail($user, $data['password']));
+                return redirect()->route('login')
+                    ->withErrors([
+                        'email' => trans('auth.email_sended'),
+                    ])->withInput();
+            }
+        } catch (\Throwable $e) {
+            defaultCatchHandler($e);
+        }
+    }
+
+    /**
+     * Check if email exists
+     *
+     * @param Request $request
+     * @return string
+     */
+    public function checkEmail(Request $request)
+    {
+        $result = $this->userRepository->exists(['email' => strtolower($request->email)]);
+        return json_encode($result);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showRecoveryForm() {
+        $logos = $this->settingRepository->findByKey('ui_logos');
+        $labels = $this->settingRepository->findByKey('ui_project_labels');
+        return view('auth.passwords.reset', [
+            'logos' => $logos->value,
+            'labels' => $labels->value
+        ]);
     }
 }

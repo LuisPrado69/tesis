@@ -33,7 +33,7 @@
         <div id="wrapper" class="login_wrapper form d-flex justify-content-center align-items-center" style="max-width: none; background-color: #eee">
             <div id="login" style="background-color: white; border-radius: 6px">
                 <section class="login_content">
-                    <form id="login_fm" role="form" action="{{ route('login') }}" method="post" class="form-horizontal">
+                    <form id="login_fm_first" role="form" action="{{ route('login') }}" method="post" class="form-horizontal">
 
                         <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3">
                             <img src="{{ asset($logos['login_logo']) }}" class="img-responsive"
@@ -76,19 +76,25 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12">
-                                <button class="btn btn-primary submit" style="margin-bottom: 20px; width: 85%; border-radius: 20px">
-                                    {{trans('app.labels.login')}}
-                                </button>
-                                <div class="clearfix"></div>
-
-                                <div class="separator" style="width: 85%; margin: auto;">
-                                    <div class="clearfix"></div>
-                                    <br/>
-                                    <p>
-                                        <strong>&copy; @actualyear {{ $labels['footer'] }}</strong>
-                                    </p>
+                            <div class="item form-group" style="margin-bottom: 10px; border-radius: 20px">
+                                <div class="col-xs-12">
+                                    <button class="btn btn-primary submit" style="margin-bottom: 10px; width: 85%; border-radius: 20px">
+                                        {{trans('app.labels.login')}}
+                                    </button>
                                 </div>
+                                <div class="col-xs-12">
+                                    <a href="{{ route('password.reset') }}" style="font-size: 13px;color: #337ab7;text-decoration: none;">
+                                        {{ trans('auth.forget_password') }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class=" col-xs-12">
+                                <br/>
+                                <br/>
+                                <p>
+                                    <strong>&copy; @actualyear {{ $labels['footer'] }}</strong>
+                                </p>
                             </div>
                         </div>
                     </form>
@@ -124,10 +130,20 @@
                 stack: stack_center,
                 delay: 4000
             });
-
             @endif
 
-            $('#login_fm').validate({
+            @if ($errors->has('email'))
+            new PNotify({
+                title: 'Atención',
+                type: 'success',
+                text: '{{ $errors->first('email') }}',
+                styling: 'bootstrap3',
+                stack: stack_center,
+                delay: 5000
+            });
+            @endif
+
+            $('#login_fm_first').validate({
                 ignore: [],
                 rules: {
                     username: {

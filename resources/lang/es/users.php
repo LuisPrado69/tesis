@@ -101,6 +101,7 @@ return [
         'head' => 'Saludos este es un email para recuperar la contraseña',
         'body' => 'Hola estimad@',
         'notify' => 'Revisala en el siguiente link:',
+        'password_recovery_request' => 'Se registró de forma satisfactoria su solicitud de recuperación de contraseña. Su nueva contraseña es',
         'footer' => 'Saludos (MIS EVENTOS CERCANOS)'
     ]
 ];

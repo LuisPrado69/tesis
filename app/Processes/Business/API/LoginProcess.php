@@ -152,9 +152,10 @@ class LoginProcess
     {
         $data = $request->all();
         $user = $this->userRepository->findBy('email', $data['email']);
-        if ($user != null) {
-            $user = $this->userRepository->createFromArray($data);
-            //TODO : PEnding create rol user
+        if (!$user) {
+            // Create rol user CLIENT
+            $data['roles'] = 3;
+            $this->userRepository->createFromArray($data);
             $response = [
                 'type' => 'success',
                 'text' => trans('auth.create_user_success')

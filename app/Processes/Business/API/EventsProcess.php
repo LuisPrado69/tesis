@@ -2,19 +2,19 @@
 
 namespace App\Processes\Business\API;
 
-use App\Models\Business\Events;
 use App\Repositories\Repository\Business\EventsUserRepository;
 use App\Repositories\Repository\Business\EventsRepository;
+use Google_Service_Calendar_EventDateTime;
+use Google_Service_Calendar_Event;
+use Illuminate\Http\JsonResponse;
+use App\Models\Business\Events;
+use Google_Service_Exception;
+use Google_Service_Calendar;
+use Illuminate\Http\Request;
+use http\Exception;
+use Google_Client;
 use DateInterval;
 use DateTime;
-use Google_Client;
-use Google_Service_Calendar;
-use Google_Service_Calendar_Event;
-use Google_Service_Calendar_EventDateTime;
-use Google_Service_Exception;
-use http\Exception;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 /**
  * Class EventsProcess
@@ -58,7 +58,7 @@ class EventsProcess
     {
         $data = $request->all();
         $eventsUser = $this->eventsUserRepository->findByField('user_id', $data['userId']);
-        $eventsCategoryUser = $this->eventsRepository->searchUserId($data['userId']);
+        $eventsCategoryUser = $this->eventsRepository->searchUserId(intval($data['userId']));
         if (count($eventsUser)) {
             $response = $eventsCategoryUser->map(function ($event) use ($eventsUser) {
                 return [
@@ -68,6 +68,8 @@ class EventsProcess
                     'date' => $event->date,
                     'url' => $event->url,
                     'location_name' => $event->location_name,
+                    'latitude' => $event->latitude,
+                    'longitude' => $event->longitude,
                     'available' => self::verifyCategory($eventsUser, $event->id)
                 ];
             });
@@ -80,6 +82,8 @@ class EventsProcess
                     'date' => $event->date,
                     'url' => $event->url,
                     'location_name' => $event->location_name,
+                    'latitude' => $event->latitude,
+                    'longitude' => $event->longitude,
                     'available' => false
                 ];
             });

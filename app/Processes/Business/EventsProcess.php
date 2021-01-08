@@ -5,9 +5,10 @@ namespace App\Processes\Business;
 use App\Repositories\Repository\Business\Catalogs\CategoryRepository;
 use App\Repositories\Repository\Business\Catalogs\LocationRepository;
 use App\Repositories\Repository\Business\EventsRepository;
+use App\Repositories\Repository\Admin\UserRepository;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\EmailForgotPassword;
+use App\Mail\PasswordRecoveryMail;
 use App\Mail\EventNotification;
 use App\Models\Business\Events;
 use App\Models\System\Setting;
@@ -38,21 +39,29 @@ class EventsProcess
     protected $locationRepository;
 
     /**
+     * @var UserRepository
+     */
+    protected $userRepository;
+
+    /**
      * Constructor to EventsProcess.
      *
      * @param EventsRepository $eventsRepository
      * @param CategoryRepository $categoryRepository
      * @param LocationRepository $locationRepository
+     * @param UserRepository $userRepository
      */
     public function __construct(
         EventsRepository $eventsRepository,
         CategoryRepository $categoryRepository,
-        LocationRepository $locationRepository
+        LocationRepository $locationRepository,
+        UserRepository $userRepository
     )
     {
         $this->eventsRepository = $eventsRepository;
         $this->categoryRepository = $categoryRepository;
         $this->locationRepository = $locationRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -234,12 +243,23 @@ class EventsProcess
     }
 
     /**
-     * Send email personal factory.
+     * Send email to recuperate account
      *
      * @param User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function sendEmailForgotPassword(User $user)
     {
-        Mail::to($user->email)->send(new EmailForgotPassword($user->fullName()));
+        try {
+            $data['enabled'] = true;
+            $data['password'] = str_random(8);
+            $data['changed_password'] = false;
+            $this->userRepository->updateFromArray($data, $user);
+            // Send email
+            Mail::to($user->email)->send(new PasswordRecoveryMail($user, $data['password']));
+        } catch (\Throwable $e) {
+            defaultCatchHandler($e);
+        }
     }
 }

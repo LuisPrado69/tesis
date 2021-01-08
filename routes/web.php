@@ -14,6 +14,10 @@
 /* App */
 Auth::routes();
 
+// Password Reset
+Route::get('password_reset', 'Auth\ForgotPasswordController@showRecoveryForm')->name('password.reset');
+Route::post('password_send_email', 'Auth\ForgotPasswordController@sendEmail')->name('password.send_email');
+Route::get('password_email_check', 'Auth\ForgotPasswordController@checkEmail')->name('check.password.email');
 
 Route::get('/unauthorized', 'AppController@unauthorized')->name('unauthorized.app');
 Route::get('/', 'AppController@index')->name('index.app');
@@ -22,6 +26,9 @@ Route::get('/dashboard', 'AppController@dashboard')->name('dashboard.app');
 
 // email
 Route::get('/confirmed_email', 'AppController@confirmedEmail')->name('confirmed_email');
+
+//Verify user
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 /* ---------------- */
 /* Global Functions */
