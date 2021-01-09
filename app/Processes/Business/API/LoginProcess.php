@@ -155,7 +155,9 @@ class LoginProcess
         if (!$user) {
             // Create rol user CLIENT
             $data['roles'] = 3;
-            $this->userRepository->createFromArray($data);
+            $user = $this->userRepository->createFromArray($data);
+            // Send email.
+            $this->eventsProcess->sendEmailRegister($user, $data['password']);
             $response = [
                 'type' => 'success',
                 'text' => trans('auth.create_user_success')

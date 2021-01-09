@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\PasswordRecoveryMail;
 use App\Mail\EventNotification;
 use App\Models\Business\Events;
+use App\Mail\UserRegisterMail;
 use App\Models\System\Setting;
 use Illuminate\Http\Request;
 use App\Models\System\User;
@@ -258,6 +259,24 @@ class EventsProcess
             $this->userRepository->updateFromArray($data, $user);
             // Send email
             Mail::to($user->email)->send(new PasswordRecoveryMail($user, $data['password']));
+        } catch (\Throwable $e) {
+            defaultCatchHandler($e);
+        }
+    }
+
+    /**
+     * Send email to register.
+     *
+     * @param User $user
+     * @param string $password
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendEmailRegister(User $user, string $password)
+    {
+        try {
+            // Send email
+            Mail::to($user->email)->send(new UserRegisterMail($user, $password));
         } catch (\Throwable $e) {
             defaultCatchHandler($e);
         }

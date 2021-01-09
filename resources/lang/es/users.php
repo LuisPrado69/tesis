@@ -103,5 +103,11 @@ return [
         'notify' => 'Revisala en el siguiente link:',
         'password_recovery_request' => 'Se registró de forma satisfactoria su solicitud de recuperación de contraseña. Su nueva contraseña es',
         'footer' => 'Saludos (MIS EVENTOS CERCANOS)'
+    ],
+    'register_email' => [
+        'head' => 'Bienvenid@ a nuestra aplicación',
+        'body' => 'Hola estimad@',
+        'password_recovery_request' => 'Su contraseña o clave de acceso es:',
+        'footer' => 'Saludos (MIS EVENTOS CERCANOS)'
     ]
 ];
