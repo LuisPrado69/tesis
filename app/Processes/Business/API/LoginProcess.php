@@ -2,10 +2,10 @@
 
 namespace App\Processes\Business\API;
 
-use App\Processes\Business\EventsProcess;
 use App\Repositories\Repository\Admin\UserRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Auth\LoginController;
+use App\Processes\Business\EventsProcess;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Exception;
@@ -119,7 +119,7 @@ class LoginProcess
                 ];
             } else {
                 if ($user->hasRole('client')) {
-                    $this->eventsProcess->sendEmailForgotPassword($user);
+                    // $this->eventsProcess->sendEmailForgotPassword($user);
                     $response = [
                         'type' => 'success',
                         'text' => trans('auth.email_success')
