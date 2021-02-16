@@ -5,10 +5,10 @@
 /storage/*.key
 /vendor/
 /.idea/
+.env
 /public/mix-manifest.json
 /public/assets
 /package-lock.json
 /public/profiles
 /public/*.png
 .vscode
-.env
