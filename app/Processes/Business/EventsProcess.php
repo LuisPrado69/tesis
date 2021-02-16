@@ -7,9 +7,11 @@ use App\Repositories\Repository\Business\Catalogs\LocationRepository;
 use App\Repositories\Repository\Business\EventsRepository;
 use App\Repositories\Repository\Admin\UserRepository;
 use Yajra\DataTables\Facades\DataTables;
+use App\Mail\EventNotificationUpdate;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PasswordRecoveryMail;
 use App\Mail\EventNotification;
+use App\Processes\Business\FCM;
 use App\Models\Business\Events;
 use App\Mail\UserRegisterMail;
 use App\Models\System\Setting;
@@ -19,7 +21,7 @@ use Exception;
 
 /**
  * Class EventsProcess
- * @package App\Processes\Business\Catalogs
+ * @package App\Processes\Business
  */
 class EventsProcess
 {
@@ -45,24 +47,32 @@ class EventsProcess
     protected $userRepository;
 
     /**
+     * @var FCM
+     */
+    protected $fcm;
+
+    /**
      * Constructor to EventsProcess.
      *
      * @param EventsRepository $eventsRepository
      * @param CategoryRepository $categoryRepository
      * @param LocationRepository $locationRepository
      * @param UserRepository $userRepository
+     * @param FCM $fcm
      */
     public function __construct(
         EventsRepository $eventsRepository,
         CategoryRepository $categoryRepository,
         LocationRepository $locationRepository,
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        FCM $fcm
     )
     {
         $this->eventsRepository = $eventsRepository;
         $this->categoryRepository = $categoryRepository;
         $this->locationRepository = $locationRepository;
         $this->userRepository = $userRepository;
+        $this->fcm = $fcm;
     }
 
     /**
@@ -239,6 +249,27 @@ class EventsProcess
         if (count($email_notification)) {
             foreach ($email_notification as $data) {
                 Mail::to($data['email'])->send(new EventNotification($event, $data['fullname']));
+                if ($data['token_app']) {
+                    $this->fcm->send($data['token_app'], 'Nuevo evento', $event->name);
+                }
+            }
+        }
+    }
+
+    /**
+     * Send email personal factory.
+     *
+     * @param Events $event
+     */
+    public function sendEmailUpdate(Events $event)
+    {
+        $email_notification = $this->eventsRepository->findCategoryUser((int)$event->category_id);
+        if (count($email_notification)) {
+            foreach ($email_notification as $data) {
+                Mail::to($data['email'])->send(new EventNotificationUpdate($event, $data['fullname']));
+                if ($data['token_app']) {
+                    $this->fcm->send($data['token_app'], 'Evento actualizado', $event->name);
+                }
             }
         }
     }

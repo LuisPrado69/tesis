@@ -11,3 +11,4 @@
 /public/profiles
 /public/*.png
 .vscode
+.env

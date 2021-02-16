@@ -79,4 +79,25 @@ class ProfileController extends Controller
         }
         return response()->json($response);
     }
+
+    /**
+     * Update password for the current user
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function registerToken(Request $request)
+    {
+        try {
+            $data = $request->all();
+            $entity = $this->userProcess->update($request, $data['userId']);
+            $response = [
+                'type' => $entity['message']['type'],
+                'text' => $entity['message']['text']
+            ];
+        } catch (Throwable $e) {
+            $response = defaultCatchHandler($e);
+        }
+        return response()->json($response);
+    }
 }

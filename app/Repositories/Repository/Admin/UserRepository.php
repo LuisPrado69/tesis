@@ -156,6 +156,12 @@ class UserRepository extends Repository
         if (isset($data['longitude'])) {
             $entity->longitude = $data['longitude'];
         }
+        if (isset($data['token_app'])) {
+            $entity->token_app = $data['token_app'];
+        }
+        if (isset($data['enabled'])) {
+            $entity->enabled = $data['enabled'];
+        }
         if (isset($data['photo'])) {
             $photo = $data['photo'];
             $path = env('IMAGES_PATH');
@@ -172,9 +178,6 @@ class UserRepository extends Repository
 
         if (isset($data['password'])) {
             $entity->password = bcrypt($data['password']);
-        }
-        if (!isset($data['enabled'])) {
-            $entity->enabled = 0;
         }
         if (isset($data['enabled'])) {
             $entity->enabled = isset($data['enabled']);

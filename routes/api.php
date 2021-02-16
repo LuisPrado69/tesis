@@ -26,6 +26,7 @@ Route::group([
     function () {
         Route::get('/searchUserId', 'Business\API\ProfileController@searchUserId');
         Route::post('/updateUser', 'Business\API\ProfileController@updateUser');
+        Route::get('/register_token', 'Business\API\ProfileController@registerToken');
     }
 );
 

@@ -132,7 +132,8 @@ class EventsController extends Controller
     public function update(Request $request, int $id)
     {
         try {
-            $this->eventsProcess->update($request, $id);
+            $entity = $this->eventsProcess->update($request, $id);
+            $this->eventsProcess->sendEmailUpdate($entity);
             $response = [
                 'view' => view('business.events.index')->render(),
                 'message' => [
