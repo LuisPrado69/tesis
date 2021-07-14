@@ -18,6 +18,8 @@ class UpdateUsers extends Migration
             $table->string('latitude', 255)->nullable();
             $table->string('longitude', 255)->nullable();
             $table->text('token_app')->nullable();
+            $table->text('username');
+            $table->text('email');
         });
     }
 
