@@ -18,8 +18,6 @@ class UpdateUsers extends Migration
             $table->string('latitude', 255)->nullable();
             $table->string('longitude', 255)->nullable();
             $table->text('token_app')->nullable();
-            $table->text('username');
-            $table->text('email');
         });
     }
 
@@ -30,6 +28,9 @@ class UpdateUsers extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->text('username')->change();
+            $table->text('email')->change();
+        });
     }
 }
