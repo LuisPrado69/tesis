@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +19,8 @@ class UpdateUsers extends Migration
             $table->string('latitude', 255)->nullable();
             $table->string('longitude', 255)->nullable();
             $table->text('token_app')->nullable();
+            DB::statement('ALTER TABLE users MODIFY COLUMN username VARCHAR(75)');
+            DB::statement('ALTER TABLE users MODIFY COLUMN email VARCHAR(75)');
         });
     }
 
@@ -28,9 +31,5 @@ class UpdateUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->text('username')->change();
-            $table->text('email')->change();
-        });
     }
 }
