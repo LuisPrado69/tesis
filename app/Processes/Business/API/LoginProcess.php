@@ -65,21 +65,18 @@ class LoginProcess
         if (Hash::check($data['password'], $user->password)) {
             if ($user != null) {
                 if ($user->enabled == 0) {
-                    dd(1);
                     $response = [
                         'type' => 'error',
                         'text' => trans('auth.disabled_user')
                     ];
                 } else {
                     if ($user->hasRole('client')) {
-                        dd(2);
                         $response = [
                             'type' => 'success',
                             'text' => trans('auth.success'),
                             'userId' => $user->id
                         ];
                     } else {
-                        dd(3);
                         $response = [
                             'type' => 'error',
                             'text' => trans('auth.disabled_role')
@@ -87,14 +84,12 @@ class LoginProcess
                     }
                 }
             } else {
-                dd(4);
                 $response = [
                     'type' => 'error',
                     'text' => trans('auth.disabled_user')
                 ];
             }
         } else {
-            dd(5);
             $response = [
                 'type' => 'error',
                 'text' => trans('auth.user_password_error')
