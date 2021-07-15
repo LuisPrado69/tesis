@@ -47,6 +47,7 @@ class LoginController extends Controller
                 'userId' => $login['userId'] ? $login['userId'] : null
             ];
         } catch (Throwable $e) {
+            dd($e);
             $response = [
                 'type' => 'error',
                 'text' => trans('auth.user_password_error'),
