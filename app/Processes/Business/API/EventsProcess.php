@@ -101,7 +101,7 @@ class EventsProcess
     {
         $validate = false;
         foreach ($userEvents as $userEvent) {
-            if ($userEvent->id === $eventId) {
+            if ($userEvent->event_id === $eventId) {
                 $validate = true;
                 break;
             }
