@@ -36,7 +36,7 @@ class EventNotification extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_ADDRESS'))
+        return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject('Notificación (nuevo evento) MIS EVENTOS CERCANOS')
             ->view('emails.event_notification');
     }

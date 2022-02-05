@@ -120,25 +120,24 @@ class EventsProcess
     public function updateUserId(Request $request)
     {
         $data = $request->all();
-        $userCategories = $this->eventsUserRepository->searchUserIdField($data['userId'], $data['eventId']);
-        if ($userCategories) {
-            $this->eventsUserRepository->delete($userCategories->id);
+        $userEvent = $this->eventsUserRepository->searchUserIdField($data['userId'], $data['eventId']);
+        if ($userEvent) {
+            $this->eventsUserRepository->delete($userEvent->id);
         } else {
             $dataUserEvent = [
                 'event_id' => $data['eventId'],
                 'user_id' => $data['userId']
             ];
             $this->eventsUserRepository->createFromArray($dataUserEvent);
-            $event = $this->eventsRepository->find($data['eventId']);
-            self::createEventGoogleCalendar($event);
+            // $event = $this->eventsRepository->find($data['eventId']);
+            // self::createEventGoogleCalendar($event);
         }
-        $response = [
+        return [
             'message' => [
                 'type' => 'success',
                 'text' => trans('events.messages.success.updated')
             ]
         ];
-        return $response;
     }
 
     /**
@@ -177,7 +176,7 @@ class EventsProcess
             $end = new Google_Service_Calendar_EventDateTime();
             $end->setDateTime($time_end);
             $event->setEnd($end);
-            $optionalArguments = array("sendNotifications"=>true);
+            $optionalArguments = ["sendNotifications" => true];
             $calendarService->events->insert($id_calendar, $event, $optionalArguments);
         } catch (Google_Service_Exception $gs) {
             $m = json_decode($gs->getMessage());

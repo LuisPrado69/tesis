@@ -30,8 +30,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
-                        <input type="text" name="description" id="description" class="form-control" placeholder="{{ trans('events.placeholders.description') }}"
-                               value="{{ $entity->description }}"/>
+                        <textarea name="description" id="description" class="form-control" placeholder="{{ trans('events.placeholders.description') }}">{{ $entity->description }}</textarea>
                     </div>
                 </div>
                 <div class="item form-group">
@@ -41,7 +40,7 @@
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
                         <select name="category_id" id="category_id" class="form-control select2" required>
-                            <option>{{ trans('app.labels.select') }}</option>
+                            <option></option>
                             @foreach($categories as $data)
                                 <option value="{{ $data->id }}" @if($entity->category_id=== $data->id) selected @endif>
                                     {{ $data->name }}
@@ -57,7 +56,7 @@
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
                         <select name="location_id" id="location_id" class="form-control select2" required>
-                            <option>{{ trans('app.labels.select') }}</option>
+                            <option></option>
                             @foreach($locations as $data)
                                 <option value="{{ $data->id }}" @if($entity->location_id=== $data->id) selected @endif>
                                     {{ $data->name }}
@@ -126,6 +125,12 @@
 
         let $form = $('#events_update_fm');
 
+        $(".select2", $form).select2({
+            placeholder: '{{ trans('app.labels.select') }}'
+        }).on("select2:close", function (e) {
+            $(this).valid()
+        })
+
         $('.date-picker').datetimepicker({
             format: 'YYYY-MM-DD',
             locale: 'es-es',
@@ -162,6 +167,15 @@
                 required: true
             },
             description: {
+                required: true
+            },
+            category_id: {
+                required: true
+            },
+            location_id: {
+                required: true
+            },
+            url: {
                 required: true
             }
         };
