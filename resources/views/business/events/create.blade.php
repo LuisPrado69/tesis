@@ -122,11 +122,21 @@
             $(this).valid()
         })
 
-        $('.date-picker').datetimepicker({
+        $('#date_start', $form).datetimepicker({
             format: 'YYYY-MM-DD',
             locale: 'es-es',
             ignoreReadonly: true
-        });
+        }).on('dp.change', function (selected) {
+            $('#date_end', $form).data("DateTimePicker").minDate(selected.date)
+        })
+
+        $('#date_end', $form).datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: 'es-es',
+            ignoreReadonly: true
+        }).on('dp.change', function (selected) {
+            $('#date_start', $form).data("DateTimePicker").maxDate(selected.date)
+        })
 
         $('.date-time-picker').datetimepicker({
             format: 'YYYY-MM-DD HH:mm',

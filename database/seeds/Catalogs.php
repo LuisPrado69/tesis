@@ -115,7 +115,7 @@ class Catalogs extends Seeder
            "description": "POR QUE ESTOY SOLA, SI SOY UN CUERAZO?",
            "date": "2022/02/14 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7723&nombreEvento=Por_que_estoy_sola,_si_soy_un_cuerazo?&ciudad=Quito_",
            "category_id": 9,
            "location_id": 1
@@ -125,7 +125,7 @@ class Catalogs extends Seeder
            "description": "PAYASO WORLD TOUR - QUITO",
            "date": "2022/02/20 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6892&nombreEvento=FRANCO_ESCAMILLA_-_PAYASO_WORLD_TOUR_-_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 2
@@ -135,7 +135,7 @@ class Catalogs extends Seeder
            "description": "MASTER OF ROCK - LOS MEJORES TRIBUTOS ROCKEROS DEL MUNDO",
            "date": "2022/04/30 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7721&nombreEvento=MASTER_OF_ROCK_-_LOS_MEJORES_TRIBUTOS_ROCKEROS_DEL_MUNDO_&ciudad=Quito_",
            "category_id": 9,
            "location_id": 3
@@ -144,8 +144,8 @@ class Catalogs extends Seeder
            "name": "Andrés Cepeda",
            "description": "ANDRÉS CEPEDA",
            "date": "2022/04/13 16:00:00",
-           "date_start": "2022/02/27",
-           "date_end": "2022/12/24",
+           "date_start": "2022/01/01",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7703&nombreEvento=Andr%C3%A9s_Cepeda&ciudad=Quito_",
            "category_id": 9,
            "location_id": 4
@@ -155,7 +155,7 @@ class Catalogs extends Seeder
            "description": "BRONCO - TOUR SE SOLTARON LOS CABALLOS",
            "date": "2022/03/04 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7720&nombreEvento=Bronco_-_Tour_Se_soltaron_los_caballos_&ciudad=Quito_",
            "category_id": 2,
            "location_id": 5
@@ -165,7 +165,7 @@ class Catalogs extends Seeder
            "description": "MORAT - QUITO",
            "date": "2022/03/10 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7705&nombreEvento=MORAT_-_QUITO_&ciudad=Quito_",
            "category_id": 2,
            "location_id": 1
@@ -175,7 +175,7 @@ class Catalogs extends Seeder
            "description": "JOSÉ LUIS PERALES - BALADAS PARA UNA DESPEDIDA",
            "date": "2022/03/19 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7710&nombreEvento=Jos%C3%A9_Luis_Perales_-_Baladas_para_una_despedida&ciudad=Quito_",
            "category_id": 2,
            "location_id": 2
@@ -185,7 +185,7 @@ class Catalogs extends Seeder
            "description": "NOCHE DE BOHEMIA Y GUITARRAS",
            "date": "2022/01/10 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7718&nombreEvento=Noche_de_Bohemia_y_guitarras&ciudad=Quito_",
            "category_id": 10,
            "location_id": 3
@@ -195,7 +195,7 @@ class Catalogs extends Seeder
            "description": "UIO FESTIVAL DE LA CULTURA ERÓTICA",
            "date": "2022/04/08 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7700&nombreEvento=UIO_Festival_de_la_Cultura_Er%C3%B3tica&ciudad=Quito_",
            "category_id": 10,
            "location_id": 4
@@ -205,7 +205,7 @@ class Catalogs extends Seeder
            "description": "MEGA FESTIVAL DE ORQUESTAS",
            "date": "2022/05/23 16:00:00",
            "date_start": "2022/01/01",
-           "date_end": "2022/12/24",
+           "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7722&nombreEvento=Mega_festival_de_Orquestas&ciudad=Quito_",
            "category_id": 10,
            "location_id": 5
