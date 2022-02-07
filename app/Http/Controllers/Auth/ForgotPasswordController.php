@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Repositories\Repository\Configuration\SettingRepository;
 use App\Repositories\Repository\Admin\UserRepository;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Mail\PasswordRecoveryMail;
@@ -36,6 +37,19 @@ class ForgotPasswordController extends Controller
     {
         $this->settingRepository = $settingRepository;
         $this->userRepository = $userRepository;
+    }
+
+    /**
+     * Download apk
+     *
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse|void
+     */
+    public function downloadApp()
+    {
+        $path = storage_path() . '/app/miseventos-app-release.apk';
+        if (file_exists($path)) {
+            return Response::download($path);
+        }
     }
 
     /**

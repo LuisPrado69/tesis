@@ -5,22 +5,15 @@
           rel="stylesheet"/>
     <link href="{{ asset('assets/vendor/gentelella/vendors/font-awesome/css/font-awesome.css.map') }}"
           rel="stylesheet"/>
-
     <link href="{{ asset('assets/vendor/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/vendor/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css.map') }}"
           rel="stylesheet"/>
-
     <link href="{{ asset('assets/vendor/gentelella/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet"/>
-
     <link href="{{ asset('assets/vendor/gentelella/css/custom.min.css') }}" rel="stylesheet"/>
-
     <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet"/>
-
     <link href="{{ mix('assets/css/theme.css') }}" rel="stylesheet"/>
-
     <!-- Custom -->
     <link href="{{ mix('assets/css/login.css') }}" rel="stylesheet"/>
-
 @endsection
 
 @push('body_classes') login-page @endpush
@@ -29,23 +22,18 @@
     <div>
         <a class="hiddenanchor" id="toregister"></a>
         <a class="hiddenanchor" id="tologin"></a>
-
-        <div id="wrapper" class="login_wrapper form d-flex justify-content-center align-items-center" style="max-width: none; background-color: #eee">
+        <div id="wrapper" class="login_wrapper form d-flex justify-content-center align-items-center"
+             style="max-width: none; background-color: #eee">
             <div id="login" style="background-color: white; border-radius: 6px">
                 <section class="login_content">
-                    <form id="login_fm_first" role="form" action="{{ route('login') }}" method="post" class="form-horizontal">
-
+                    <form id="login_fm_first" role="form" action="{{ route('login') }}" method="post"
+                          class="form-horizontal">
                         <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3">
-                            <img src="{{ asset($logos['login_logo']) }}" class="img-responsive"
-                                 style="width: 100%"/>
+                            <img src="{{ asset($logos['login_logo']) }}" class="img-responsive" style="width: 100%"/>
                         </div>
-
                         @csrf
-
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
-
                             <br>
-
                             @if($timeout = session('session_time_out'))
                                 <div class="row">
                                     <div class="col-xs-12">
@@ -58,16 +46,13 @@
                                     </div>
                                 </div>
                             @endif
-
                             <div class="item form-group" style="margin-bottom: 20px">
                                 <div class="col-xs-12">
                                     <input type="text" class="form-control" style="width: 85%; margin: auto; border-radius: 20px"
-                                           name="username" id="username"
-                                           value="{{ old('username') }}" placeholder="{!! trans('users.user.placeholders.username') !!}">
+                                           name="username" id="username" value="{{ old('username') }}"
+                                           placeholder="{!! trans('users.user.placeholders.username') !!}">
                                 </div>
-
                             </div>
-
                             <div class="item form-group" style="margin-bottom: 20px">
                                 <div class="col-xs-12">
                                     <input type="password" class="form-control" name="password" id="password"
@@ -75,7 +60,6 @@
                                            style="width: 85%; margin: auto; border-radius: 20px">
                                 </div>
                             </div>
-
                             <div class="item form-group" style="margin-bottom: 10px; border-radius: 20px">
                                 <div class="col-xs-12">
                                     <button class="btn btn-primary submit" style="margin-bottom: 10px; width: 85%; border-radius: 20px">
@@ -88,7 +72,6 @@
                                     </a>
                                 </div>
                             </div>
-
                             <div class=" col-xs-12">
                                 <br/>
                                 <br/>
@@ -98,6 +81,13 @@
                             </div>
                         </div>
                     </form>
+
+                    <div class="col-xs-12">
+                        <a href="{{ url('download.app') }}" target="_b">
+                            Download
+                        </a>
+                    </div>
+
                 </section>
             </div>
         </div>
@@ -108,11 +98,9 @@
     <script src="{{ asset('assets/vendor/gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-validation/localization/messages_es.js') }}"></script>
-
     <script src="{{ asset('assets/vendor/gentelella/vendors/pnotify/dist/pnotify.js') }}"></script>
-
     <script>
-        $(function() {
+        $(function () {
 
             $("#username").focus();
 
@@ -153,22 +141,22 @@
                         required: true
                     }
                 },
-                highlight: function(element) {
+                highlight: function (element) {
                     $(element).closest('.form-group').addClass('has-error').removeClass('has-success');
                 },
-                unhighlight: function(element) {
+                unhighlight: function (element) {
                     $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
                 },
                 errorElement: 'span',
                 errorClass: 'help-block',
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     if (element.parent('.input-group').length) {
                         error.insertAfter(element.parent());
                     } else {
                         error.insertAfter(element);
                     }
                 },
-                submitHandler: function(form) {
+                submitHandler: function (form) {
                     $('button[type="submit"]').prop('disabled', true);
                     form.submit();
                 }

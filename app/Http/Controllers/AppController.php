@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\Repository\Configuration\SettingRepository;
 use App\Repositories\Repository\System\NotificationRepository;
 use App\Repositories\Repository\System\ShortcutRepository;
+use Illuminate\Http\Response;
 use Throwable;
 
 /**

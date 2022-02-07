@@ -26,6 +26,7 @@ class AjaxMiddleware
             'password_reset',
             'password_reset',
             'password_send_email',
+            'download_app',
             'user/verify/{token}'
         ];
 
