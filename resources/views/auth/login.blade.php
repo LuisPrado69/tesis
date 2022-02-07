@@ -83,7 +83,7 @@
                     </form>
                     <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-4 col-sm-offset-4">
                         <div class="col-xs-12">
-                            <a href="{{ url('download.app') }}" target="_blank" class="btn btn-primary submit"
+                            <a href="{{ env('APP_URL') }}/download_app" target="_b" class="btn btn-primary submit"
                                style="margin-bottom: 10px; width: 85%; border-radius: 20px">
                                 Descargar el APK
                             </a>
