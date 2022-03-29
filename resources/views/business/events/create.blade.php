@@ -20,7 +20,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="{{ trans('events.placeholders.name') }}"/>
+                        <input type="text" name="name" id="name" class="form-control" onkeyup="this.value = this.value.toUpperCase();" placeholder="{{ trans('events.placeholders.name') }}"/>
                     </div>
                 </div>
                 <div class="item form-group">
@@ -29,7 +29,7 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div class="col-md-4 col-sm-5 col-xs-12">
-                        <textarea name="description" id="description" class="form-control" placeholder="{{ trans('events.placeholders.description') }}"></textarea>
+                        <textarea name="description" id="description" class="form-control" onkeyup="this.value = this.value.toUpperCase();" placeholder="{{ trans('events.placeholders.description') }}"></textarea>
                     </div>
                 </div>
                 <div class="item form-group">

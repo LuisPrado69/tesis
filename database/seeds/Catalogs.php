@@ -56,6 +56,10 @@ class Catalogs extends Seeder
          {
            "id": 10,
            "name": "TEATRO"
+         },
+         {
+           "id": 11,
+           "name": "SEMINARIOS/ CONGRESOS"
          }
         ]'
         );
@@ -111,39 +115,39 @@ class Catalogs extends Seeder
         // Events
         $eventsJson = json_decode('[    
          {
-           "name": "Por que estoy sola, si soy un cuerazo?",
-           "description": "POR QUE ESTOY SOLA, SI SOY UN CUERAZO?",
-           "date": "2022/02/14 16:00:00",
+           "name": "ROCKSTALGIA",
+           "description": "ROCKSTALGIA",
+           "date": "2022/04/29 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7723&nombreEvento=Por_que_estoy_sola,_si_soy_un_cuerazo?&ciudad=Quito_",
+           "url": "https://www.ticketshow.com.ec/rps/synopsism.aspx?evento=7755&nombreEvento=Rockstalgia&ciudad=Quito",
            "category_id": 9,
            "location_id": 1
          },
          {
-           "name": "FRANCO ESCAMILLA",
-           "description": "PAYASO WORLD TOUR - QUITO",
-           "date": "2022/02/20 16:00:00",
+           "name": "IL DIVO",
+           "description": "IL DIVO - GREATES HITS TOUR",
+           "date": "2022/05/03 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=6892&nombreEvento=FRANCO_ESCAMILLA_-_PAYASO_WORLD_TOUR_-_QUITO&ciudad=Quito_",
+           "url": "https://www.ticketshow.com.ec/rps/synopsism.aspx?evento=7747&nombreEvento=IL_DIVO_-_Greates_Hits_Tour&ciudad=Quito_",
            "category_id": 9,
            "location_id": 2
          },
          {
-           "name": "MASTER OF ROCK",
-           "description": "MASTER OF ROCK - LOS MEJORES TRIBUTOS ROCKEROS DEL MUNDO",
-           "date": "2022/04/30 16:00:00",
+           "name": "RICARDO MONTANER",
+           "description": "RICARDO MONTANER",
+           "date": "2022/05/27 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7721&nombreEvento=MASTER_OF_ROCK_-_LOS_MEJORES_TRIBUTOS_ROCKEROS_DEL_MUNDO_&ciudad=Quito_",
+           "url": "https://www.ticketshow.com.ec/rps/synopsism.aspx?evento=7030&nombreEvento=Ricardo_Montaner_QUITO&ciudad=Quito_",
            "category_id": 9,
            "location_id": 3
          },
          {
-           "name": "Andrés Cepeda",
+           "name": "ANDRÉS CEPEDA",
            "description": "ANDRÉS CEPEDA",
-           "date": "2022/04/13 16:00:00",
+           "date": "2022/05/13 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7703&nombreEvento=Andr%C3%A9s_Cepeda&ciudad=Quito_",
@@ -151,64 +155,94 @@ class Catalogs extends Seeder
            "location_id": 4
          },
          {
-           "name": "Bronco",
-           "description": "BRONCO - TOUR SE SOLTARON LOS CABALLOS",
-           "date": "2022/03/04 16:00:00",
+           "name": "EL JOKER",
+           "description": "EL JOKER",
+           "date": "2022/04/22 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7720&nombreEvento=Bronco_-_Tour_Se_soltaron_los_caballos_&ciudad=Quito_",
-           "category_id": 2,
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7739&nombreEvento=El_Joker&ciudad=Quito",
+           "category_id": 9,
            "location_id": 5
          },
          {
-           "name": "MORAT",
-           "description": "MORAT - QUITO",
-           "date": "2022/03/10 16:00:00",
+           "name": "SERVANDO Y FLORENTINO",
+           "description": "SERVANDO Y FLORENTINO",
+           "date": "2022/05/13 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7705&nombreEvento=MORAT_-_QUITO_&ciudad=Quito_",
-           "category_id": 2,
+           "url": "https://www.ticketshow.com.ec/rps/synopsism.aspx?evento=7733&nombreEvento=Servando_y_Florentino&ciudad=Quito_",
+           "category_id": 9,
            "location_id": 1
          },
          {
-           "name": "José Luis Perales",
-           "description": "JOSÉ LUIS PERALES - BALADAS PARA UNA DESPEDIDA",
-           "date": "2022/03/19 16:00:00",
-           "date_start": "2022/01/01",
-           "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7710&nombreEvento=Jos%C3%A9_Luis_Perales_-_Baladas_para_una_despedida&ciudad=Quito_",
-           "category_id": 2,
-           "location_id": 2
-         },
-         {
-           "name": "Noche de Bohemia y guitarras",
-           "description": "NOCHE DE BOHEMIA Y GUITARRAS",
+           "name": "CARLOS VIVES",
+           "description": "CARLOS VIVES QUITO",
            "date": "2022/01/10 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7718&nombreEvento=Noche_de_Bohemia_y_guitarras&ciudad=Quito_",
-           "category_id": 10,
+           "url": "https://www.ticketshow.com.ec/rps/synopsism.aspx?evento=7757&nombreEvento=Carlos_Vives_QUITO&ciudad=Quito_",
+           "category_id": 9,
            "location_id": 3
          },
          {
-           "name": "UIO Festival de la Cultura Erótica",
+           "name": "UIO FESTIVAL DE LA CULTURA ERÓTICA",
            "description": "UIO FESTIVAL DE LA CULTURA ERÓTICA",
            "date": "2022/04/08 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
            "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7700&nombreEvento=UIO_Festival_de_la_Cultura_Er%C3%B3tica&ciudad=Quito_",
-           "category_id": 10,
+           "category_id": 9,
            "location_id": 4
          },
          {
-           "name": "Mega festival de Orquestas",
-           "description": "MEGA FESTIVAL DE ORQUESTAS",
-           "date": "2022/05/23 16:00:00",
+           "name": "LAST MUSIC FESTIVAL",
+           "description": "LAST MUSIC FESTIVAL 2021",
+           "date": "2022/05/21 16:00:00",
            "date_start": "2022/01/01",
            "date_end": "2022/12/31",
-           "url": "https://www.ticketshow.com.ec/pages/synopsis.aspx?evento=7722&nombreEvento=Mega_festival_de_Orquestas&ciudad=Quito_",
-           "category_id": 10,
-           "location_id": 5
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7679&nombreEvento=LAST_Music_Festival_2021&ciudad=Quito",
+           "category_id": 9,
+           "location_id": 4
+         },
+         {
+           "name": "JORNADA INTERNACIONAL DE TEORÍA DE LAS RESTRICCIONES",
+           "description": "JORNADA INTERNACIONAL DE TEORÍA DE LAS RESTRICCIONES TOC QUITO",
+           "date": "2022/05/22 16:00:00",
+           "date_start": "2022/01/01",
+           "date_end": "2022/12/31",
+           "url": "https://www.ticketshow.com.ec/pages/inscripciones.aspx?evento=7760&nombreEvento=Jornada_Internacional_De_Teoria_De_Las_Restricciones_Toc_QUITO&ciudad=Quito_",
+           "category_id": 11,
+           "location_id": 4
+         },
+         {
+           "name": "2DO CONGRESO INTERNACIONAL DE MEDICINA INTERNA",
+           "description": "2DO CONGRESO INTERNACIONAL DE MEDICINA INTERNA Y MANEJO DEL PACIENTE CRÍTICO FUNESALUD 2022",
+           "date": "2022/05/12 16:00:00",
+           "date_start": "2022/01/01",
+           "date_end": "2022/12/31",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7750&nombreEvento=2do_Congreso_internacional_de_medicina_interna_y_manejo_del_paciente_cr%C3%ADtico__%22Funesalud_2022%E2%80%9D&ciudad=Quito",
+           "category_id": 11,
+           "location_id": 4
+         },
+         {
+           "name": "CONGRESO PANAMERICANO DE FLEBOLOGIA",
+           "description": "CONGRESO PANAMERICANO DE FLEBOLOGIA",
+           "date": "2022/07/16 16:00:00",
+           "date_start": "2022/01/01",
+           "date_end": "2022/12/31",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7719&nombreEvento=Congreso_Panamericano_de_Flebologia&ciudad=quito",
+           "category_id": 11,
+           "location_id": 4
+         },
+         {
+           "name": "XVII DE REUMATOLOGÍA Y REHABILITACIÓN CERER",
+           "description": "XVII DE REUMATOLOGÍA Y REHABILITACIÓN CERER",
+           "date": "2022/06/30 16:00:00",
+           "date_start": "2022/01/01",
+           "date_end": "2022/12/31",
+           "url": "https://www.ticketshow.com.ec/rps/synopsis.aspx?evento=7758&nombreEvento=XVII_de_Reumatolog%C3%ADa_y_Rehabilitaci%C3%B3n_Cerer&ciudad=Quito",
+           "category_id": 11,
+           "location_id": 4
          }
         ]');
         foreach ($eventsJson as $data) {
