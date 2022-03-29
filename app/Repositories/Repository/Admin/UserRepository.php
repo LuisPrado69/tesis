@@ -176,7 +176,7 @@ class UserRepository extends Repository
             $entity->photo = $fileName;
         }
 
-        if (isset($data['password'])) {
+        if (isset($data['password']) && $data['password']) {
             $entity->password = bcrypt($data['password']);
         }
         if (isset($data['enabled'])) {
