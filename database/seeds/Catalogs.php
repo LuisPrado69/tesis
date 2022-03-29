@@ -277,7 +277,7 @@ class Catalogs extends Seeder
            "user_id": 4
          },
          {
-           "category_id": 10,
+           "category_id": 9,
            "user_id": 4
          },
          {
@@ -297,7 +297,7 @@ class Catalogs extends Seeder
            "user_id": 5
          },
          {
-           "category_id": 10,
+           "category_id": 9,
            "user_id": 5
          },
          {
@@ -317,7 +317,7 @@ class Catalogs extends Seeder
            "user_id": 6
          },
          {
-           "category_id": 10,
+           "category_id": 9,
            "user_id": 6
          }
         ]');
