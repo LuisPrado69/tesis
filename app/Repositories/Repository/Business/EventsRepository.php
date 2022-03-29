@@ -129,12 +129,13 @@ class EventsRepository extends Repository
      * Find emails by rol ACC
      *
      * @param int $categoryId
+     * @param int $eventId
      *
      * @return mixed
      */
-    public function findCategoryUser(int $categoryId)
+    public function findCategoryUser(int $categoryId, int $eventId)
     {
-        return $this->model
+        $query = $this->model
             ->join('category', 'events.category_id', '=', 'category.id')
             ->join('category_user', 'category_user.category_id', '=', 'category.id')
             ->join('users', 'users.id', '=', 'category_user.user_id')
@@ -144,6 +145,8 @@ class EventsRepository extends Repository
                 DB::raw('(6371*ACOS(COS(RADIANS(users.latitude))*COS(RADIANS(location.latitude))*COS(RADIANS(location.longitude)-RADIANS(users.latitude))+SIN(RADIANS(users.latitude))*SIN(RADIANS(location.latitude)))+2.5) AS distance')
             )
             ->distinct('users.email', 'users.token_app', DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname'))
-            ->where('events.category_id', $categoryId)->get()->toArray();
+            ->where('events.category_id', $categoryId)
+            ->where('events.id', $eventId);
+        return $query->get()->toArray();
     }
 }
