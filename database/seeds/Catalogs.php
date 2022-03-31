@@ -101,6 +101,12 @@ class Catalogs extends Seeder
            "name": "TRIBUNA DE LOS SHYRIS",
            "latitude": "-0.182651",
            "longitude": "-78.482284"
+         },
+         {
+           "id": 6,
+           "name": "SALINAS TENIS CLUB",
+           "latitude": "-2.213874",
+           "longitude": "-80.959874"
          }
         ]');
         foreach ($locationJson as $data) {

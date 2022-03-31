@@ -28,8 +28,8 @@
     <link href="{{ asset('assets/vendor/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet"/>
 
     <link href="{{ asset('assets/vendor/gentelella/css/custom.min.css') }}" rel="stylesheet"/>
-    <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet"/>
-    <link href="{{ mix('assets/css/theme.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet"/>
     {{--datetimepicker--}}
     <link href="{{ asset('assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet"/>
 @endsection

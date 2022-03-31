@@ -10,10 +10,10 @@
           rel="stylesheet"/>
     <link href="{{ asset('assets/vendor/gentelella/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/vendor/gentelella/css/custom.min.css') }}" rel="stylesheet"/>
-    <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet"/>
-    <link href="{{ mix('assets/css/theme.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet"/>
     <!-- Custom -->
-    <link href="{{ mix('assets/css/login.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet"/>
 @endsection
 
 @push('body_classes') login-page @endpush
