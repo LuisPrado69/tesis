@@ -47,6 +47,8 @@ class Events extends Model
         'location_id'
     ];
 
+    const MAX_DISTANCE = 50;
+
     /**
      * Relation with Category.
      *

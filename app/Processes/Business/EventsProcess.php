@@ -245,12 +245,14 @@ class EventsProcess
      */
     public function sendEmail(Events $event)
     {
-        $email_notification = $this->eventsRepository->findCategoryUser((int)$event->category_id, (int)$event->id);
+        $email_notification = $this->eventsRepository->findCategoryUser((int)$event->id);
         if (count($email_notification)) {
             foreach ($email_notification as $data) {
-                Mail::to($data['email'])->send(new EventNotification($event, $data['fullname']));
-                if ($data['token_app']) {
-                    $this->fcm->send($data['token_app'], 'Nuevo evento', $event->name);
+                if ($data->distance <= Events::MAX_DISTANCE) {
+                    Mail::to($data['email'])->send(new EventNotification($event, $data['fullname']));
+                    if ($data['token_app']) {
+                        $this->fcm->send($data['token_app'], 'Nuevo evento', $event->name);
+                    }
                 }
             }
         }
