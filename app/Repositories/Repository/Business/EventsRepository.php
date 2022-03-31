@@ -141,7 +141,7 @@ class EventsRepository extends Repository
             ->join('location', 'location.id', '=', 'events.location_id')
             ->select('users.email', 'users.token_app',
                 DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname'),
-                DB::raw('(6371*ACOS(COS(RADIANS(users.latitude))*COS(RADIANS(location.latitude))*COS(RADIANS(location.longitude)-RADIANS(users.latitude))+SIN(RADIANS(users.latitude))*SIN(RADIANS(location.latitude)))+2.5) AS distance')
+                DB::raw('111.111 * DEGREES(ACOS(LEAST(1.0, COS(RADIANS(users.latitude))* COS(RADIANS(location.latitude))* COS(RADIANS(users.longitude - location.longitude))+ SIN(RADIANS(users.latitude))* SIN(RADIANS(location.latitude))))) AS distance')
             )
             ->distinct('users.email', 'users.token_app', DB::raw('CONCAT(users.last_name, " ", users.first_name) AS fullname'))
             ->where('events.id', $eventId);
