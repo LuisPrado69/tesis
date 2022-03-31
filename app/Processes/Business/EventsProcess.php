@@ -248,7 +248,7 @@ class EventsProcess
         $email_notification = $this->eventsRepository->findCategoryUser((int)$event->id);
         if (count($email_notification)) {
             foreach ($email_notification as $data) {
-                if ($data->distance <= Events::MAX_DISTANCE) {
+                if (floatval($data['distance']) <= Events::MAX_DISTANCE) {
                     Mail::to($data['email'])->send(new EventNotification($event, $data['fullname']));
                     if ($data['token_app']) {
                         $this->fcm->send($data['token_app'], 'Nuevo evento', $event->name);
